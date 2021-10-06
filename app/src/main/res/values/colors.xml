@@ -20,4 +20,6 @@
     <color name="rosa">#ee5b69</color>
     <color name="piel">#f6d3a3</color>
     <color name="gris">#9b9b9b</color>
+
+    <color name="fondo">#FFFFFFFF</color>
 </resources>
