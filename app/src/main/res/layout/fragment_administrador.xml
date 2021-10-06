@@ -1,14 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".controller.Administrador">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <Button
+        android:id="@+id/reportesAdminBTN"
+        android:layout_width="321dp"
+        android:layout_height="75dp"
+        android:backgroundTint="@color/azul"
+        android:gravity="center_vertical"
+        android:text="Reportar Incidente"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/administracionAdminBTN"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
-</FrameLayout>
+    <Button
+        android:id="@+id/administracionAdminBTN"
+        android:layout_width="321dp"
+        android:layout_height="75dp"
+        android:backgroundTint="@color/azul"
+        android:gravity="center_vertical"
+        android:text="Mis Reportes"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reportesAdminBTN" />
+
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="328dp"
+        android:layout_height="132dp"
+        app:layout_constraintBottom_toTopOf="@+id/reportesAdminBTN"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logodecolores" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

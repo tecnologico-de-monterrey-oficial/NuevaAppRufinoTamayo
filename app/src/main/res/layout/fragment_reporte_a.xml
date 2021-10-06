@@ -87,4 +87,100 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <!--       ***AJUSTARLO***
+    <TextView
+        android:id="@+id/tituloTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lato_bold"
+        android:text="Reportar Incidente"
+        android:textSize="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/asuntoInputTXT"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/asuntoInputTXT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Asunto"
+        app:layout_constraintBottom_toTopOf="@+id/spinnerIncidentes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tituloTxt" />
+
+    <Spinner
+        android:id="@+id/spinnerIncidentes"
+
+        android:layout_width="205dp"
+        android:layout_height="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/descripcionReporteInputTXT"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/asuntoInputTXT" />
+
+
+    <TextView
+        android:id="@+id/textoPrueba"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="*prueba de spinner*"
+        app:layout_constraintBottom_toTopOf="@+id/descripcionReporteInputTXT"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.912"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/asuntoInputTXT"
+        app:layout_constraintVertical_bias="0.806" />
+
+    <EditText
+        android:id="@+id/descripcionReporteInputTXT"
+        android:layout_width="258dp"
+        android:layout_height="213dp"
+        android:ems="10"
+        android:fontFamily="@font/lato_bold"
+        android:inputType="textPersonName"
+        android:text="Descripcion"
+        app:layout_constraintBottom_toTopOf="@+id/esUrgenteInputSWITCH"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerIncidentes" />
+
+    <TextView
+        android:id="@+id/esUrgenteTXT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lato_bold"
+        android:text="Es urgente?"
+        android:textSize="20dp"
+        tools:layout_editor_absoluteX="77dp"
+        tools:layout_editor_absoluteY="568dp" />
+
+
+    <Switch
+        android:id="@+id/esUrgenteInputSWITCH"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginBottom="48dp"
+        android:text="Switch"
+        app:layout_constraintBottom_toTopOf="@+id/botonEnviarReporte"
+        app:layout_constraintStart_toEndOf="@+id/esUrgenteTXT" />
+
+    <Button
+        android:id="@+id/botonEnviarReporte"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="40dp"
+        android:text="Siguiente"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="242dp" />
+    -->
 </androidx.constraintlayout.widget.ConstraintLayout>

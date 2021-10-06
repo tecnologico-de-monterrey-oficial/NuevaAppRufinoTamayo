@@ -1,14 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controller.ReportesAdministrador">
+    tools:context=".controller.ReportesAdministrador"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/tituloAdminTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lato_bold"
+        android:text="Reportes"
+        android:textSize="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/organizarCategoriasBTN"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <Button
+        android:id="@+id/organizarCategoriasBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Categoria"
+        app:layout_constraintBottom_toTopOf="@+id/organizarTiposDeCuentaBTN"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/organizarTiposDeCuentaBTN"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Cuentas/Anonimos"
+        android:textSize="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/listViewReportes"
+        app:layout_constraintEnd_toStartOf="@+id/organizarAntiguedad"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/organizarAntiguedad"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Antiguedad"
+        android:textSize="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/organizarTiposDeCuentaBTN"
+        tools:layout_editor_absoluteY="157dp" />
+
+    <ListView
+        android:id="@+id/listViewReportes"
+        android:layout_width="408dp"
+        android:layout_height="526dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/organizarAntiguedad" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
