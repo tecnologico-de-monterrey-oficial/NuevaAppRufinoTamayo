@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/reportarIncidenteConCuentaBTN"
+        android:layout_width="321dp"
+        android:layout_height="75dp"
+        android:backgroundTint="@color/azul"
+        android:gravity="center_vertical"
+        android:text="Reportar Incidente"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/misReportesConCuentaBTN"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <Button
+        android:id="@+id/misReportesConCuentaBTN"
+        android:layout_width="321dp"
+        android:layout_height="75dp"
+        android:backgroundTint="@color/azul"
+        android:gravity="center_vertical"
+        android:text="Mis Reportes"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/reglamentoConCuentaBTN"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reportarIncidenteConCuentaBTN" />
+
+    <Button
+        android:id="@+id/reglamentoConCuentaBTN"
+        android:layout_width="321dp"
+        android:layout_height="75dp"
+        android:backgroundTint="@color/azul"
+        android:gravity="center_vertical"
+        android:text="Reglamento"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/misReportesConCuentaBTN" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="328dp"
+        android:layout_height="132dp"
+        app:layout_constraintBottom_toTopOf="@+id/reportarIncidenteConCuentaBTN"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logodecolores" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
