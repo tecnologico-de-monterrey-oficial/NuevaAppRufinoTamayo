@@ -6,4 +6,11 @@
     <string name="mnu_option_shop_fragment">Shop!</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">This is the SHOP Fragment</string>
+
+    <string-array name="Problematicas">
+        <item>problema1</item>
+        <item>problema2</item>
+        <item>problema3</item>
+        <item>problema4</item>
+    </string-array>
 </resources>

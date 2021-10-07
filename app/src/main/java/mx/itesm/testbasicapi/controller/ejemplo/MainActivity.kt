@@ -52,8 +52,8 @@ class MainActivity : AppCompatActivity() {
         navigationView.setNavigationItemSelectedListener { item ->
             var fragmentToShow: Fragment = welcomeFragment
             when (item.itemId) {
-                R.id.mnu_products -> fragmentToShow = ProductsFragment()
-                R.id.mnu_shop -> fragmentToShow = ShopFragment()
+                //R.id.mnu_products -> fragmentToShow = ProductsFragment()
+                //R.id.mnu_shop -> fragmentToShow = ShopFragment()
                 else -> {
                     Snackbar.make(
                         drawerLayout,

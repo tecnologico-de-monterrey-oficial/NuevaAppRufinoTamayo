@@ -31,7 +31,7 @@ class WelcomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val message = "Welcome ".plus(arguments?.getString(PARAM_NAME_KEY, "unknown guy"))
-        view.findViewById<TextView>(R.id.txtHelloMessage).text = message
+        //view.findViewById<TextView>(R.id.txtHelloMessage).text = message
     }
 
     companion object {

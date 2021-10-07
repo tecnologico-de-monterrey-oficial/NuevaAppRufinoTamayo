@@ -7,34 +7,28 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import mx.itesm.testbasicapi.R
-import mx.itesm.testbasicapi.controller.ejemplo.AddProductFragment
-
-class Visitante : Fragment() {
-    lateinit var botonReportarIncidente: Button
-    lateinit var botonMisReportes: Button
-    lateinit var botonReglamento: Button
-    lateinit var botonTemporal: Button
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+class conCuenta : Fragment() {
+    lateinit var reportarIncidente: Button
+    lateinit var misReportes: Button
+    lateinit var Reglamento: Button
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_visitante, container, false)
+        return inflater.inflate(R.layout.fragment_con_cuenta, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-        //Boton de reportar accidentes
-        botonReportarIncidente = view.findViewById(R.id.botonPantallaReportar)
-        botonReportarIncidente.setOnClickListener {
+        //boton reportar incidente
+        reportarIncidente = view.findViewById(R.id.reportarIncidenteConCuentaBTN)
+        reportarIncidente.setOnClickListener {
             val fragment = ReporteA()
             val transaccionFragmento = parentFragmentManager.beginTransaction()
             transaccionFragmento.replace(R.id.actividadInicio, fragment)
@@ -42,19 +36,19 @@ class Visitante : Fragment() {
             transaccionFragmento.commit()
         }
 
-        //boton de mis reportes
-        botonMisReportes = view.findViewById(R.id.botonPantallaMisReportes)
-        botonMisReportes.setOnClickListener {
+        //boton mis reportes
+        misReportes = view.findViewById(R.id.misReportesConCuentaBTN)
+        misReportes.setOnClickListener {
             val fragment = ReportesVisitante()
             val transaccionFragmento = parentFragmentManager.beginTransaction()
-            transaccionFragmento.replace(R.id.fragContViewInicio, fragmentoReporteA)
+            transaccionFragmento.replace(R.id.actividadInicio, fragment)
             transaccionFragmento.addToBackStack(null)
             transaccionFragmento.commit()
         }
 
-        //boton de reglamento
-        botonReglamento = view.findViewById(R.id.botonPantallaReglamento)
-        botonReglamento.setOnClickListener {
+        //boton reglamento
+        Reglamento = view.findViewById(R.id.reglamentoConCuentaBTN)
+        Reglamento.setOnClickListener {
             val fragment = Reglamento()
             val transaccionFragmento = parentFragmentManager.beginTransaction()
             transaccionFragmento.replace(R.id.actividadInicio, fragment)
@@ -62,19 +56,9 @@ class Visitante : Fragment() {
             transaccionFragmento.commit()
         }
 
-        //boton temporal de inicio de sesion
-        botonTemporal = view.findViewById(R.id.goToSesion)
-        botonTemporal.setOnClickListener {
-            val fragment = conCuenta()
-            val transaccionFragmento = parentFragmentManager.beginTransaction()
-            transaccionFragmento.replace(R.id.actividadInicio, fragment)
-            transaccionFragmento.addToBackStack(null)
-            transaccionFragmento.commit()
-        }
-
-
-
     }
+
+
 
 
 }

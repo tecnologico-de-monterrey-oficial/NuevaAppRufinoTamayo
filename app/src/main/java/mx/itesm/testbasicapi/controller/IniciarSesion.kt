@@ -30,6 +30,7 @@ class IniciarSesion : Fragment() {
     lateinit var botonContinuarSinIniciarSesion: Button
     lateinit var botonIniciarSesion: Button
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -103,5 +104,9 @@ class IniciarSesion : Fragment() {
                 Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intentInicio)
         }
+
+        //Iniciar sesion con Cuenta
+        //TODO HACER LA VERIFICACION
+
     }
 }
