@@ -56,6 +56,7 @@ class IniciarSesion : Fragment() {
         botonIniciarSesion = view.findViewById(R.id.botonIniciarSesion)
 
         // Asignaciones de Click Listeners
+        textoCrearCuenta.setOnClickListener(irACrearCuenta())
         botonContinuarSinIniciarSesion.setOnClickListener(irAlInicio(view))
         botonIniciarSesion.setOnClickListener(iniciarSesion(view))
     }
@@ -72,6 +73,8 @@ class IniciarSesion : Fragment() {
 
                             Utils.saveToken(token, view.context)
                             RemoteRepository.updateRemoteReferences(token.token, view.context);
+
+                            // Ir a la actividad de inicio
                             val intentInicio = Intent(view.context, Inicio::class.java)
                             intentInicio.flags =
                                 Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
@@ -108,5 +111,15 @@ class IniciarSesion : Fragment() {
         //Iniciar sesion con Cuenta
         //TODO HACER LA VERIFICACION
 
+    }
+
+    private fun irACrearCuenta(): View.OnClickListener? {
+        return View.OnClickListener {
+            val fragment = CrearCuenta()
+            val transaccionFragmento = parentFragmentManager.beginTransaction()
+            transaccionFragmento.replace(R.id.fragContViewAutenticacion, fragment)
+            transaccionFragmento.addToBackStack(null)
+            transaccionFragmento.commit()
+        }
     }
 }

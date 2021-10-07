@@ -32,7 +32,7 @@ class Visitante : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        //Boton de reportar accidentes
+        //Boton de reportar incidentes
         botonReportarIncidente = view.findViewById(R.id.botonPantallaReportar)
         botonReportarIncidente.setOnClickListener {
             val fragment = ReporteA()
