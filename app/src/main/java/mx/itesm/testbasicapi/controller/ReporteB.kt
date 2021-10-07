@@ -46,7 +46,7 @@ class ReporteB : Fragment() {
         botonSiguiente.setOnClickListener {
             val fragmentListaReportes = ReporteC()
             val transaccionFragmento = parentFragmentManager.beginTransaction()
-            transaccionFragmento.replace(R.id.actividadInicio, fragmentListaReportes)
+            transaccionFragmento.replace(R.id.fragContViewInicio, fragmentListaReportes)
             transaccionFragmento.addToBackStack(null)
             transaccionFragmento.commit()
         }

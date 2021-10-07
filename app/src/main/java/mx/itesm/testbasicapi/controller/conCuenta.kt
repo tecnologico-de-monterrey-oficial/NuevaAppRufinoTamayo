@@ -31,7 +31,7 @@ class conCuenta : Fragment() {
         reportarIncidente.setOnClickListener {
             val fragment = ReporteA()
             val transaccionFragmento = parentFragmentManager.beginTransaction()
-            transaccionFragmento.replace(R.id.actividadInicio, fragment)
+            transaccionFragmento.replace(R.id.fragContViewInicio, fragment)
             transaccionFragmento.addToBackStack(null)
             transaccionFragmento.commit()
         }
@@ -41,7 +41,7 @@ class conCuenta : Fragment() {
         misReportes.setOnClickListener {
             val fragment = ReportesVisitante()
             val transaccionFragmento = parentFragmentManager.beginTransaction()
-            transaccionFragmento.replace(R.id.actividadInicio, fragment)
+            transaccionFragmento.replace(R.id.fragContViewInicio, fragment)
             transaccionFragmento.addToBackStack(null)
             transaccionFragmento.commit()
         }
@@ -51,7 +51,7 @@ class conCuenta : Fragment() {
         Reglamento.setOnClickListener {
             val fragment = Reglamento()
             val transaccionFragmento = parentFragmentManager.beginTransaction()
-            transaccionFragmento.replace(R.id.actividadInicio, fragment)
+            transaccionFragmento.replace(R.id.fragContViewInicio, fragment)
             transaccionFragmento.addToBackStack(null)
             transaccionFragmento.commit()
         }

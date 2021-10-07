@@ -30,7 +30,7 @@ class ReporteC : Fragment() {
         botonSeguirSinCuentaa.setOnClickListener {
             val fragmentListaReportes = ReporteD()
             val transaccionFragmento = parentFragmentManager.beginTransaction()
-            transaccionFragmento.replace(R.id.actividadInicio, fragmentListaReportes)
+            transaccionFragmento.replace(R.id.fragContViewInicio, fragmentListaReportes)
             transaccionFragmento.addToBackStack(null)
             transaccionFragmento.commit()
         }
@@ -40,7 +40,7 @@ class ReporteC : Fragment() {
         botonSeguirConCuenta.setOnClickListener {
             val fragmentListaReportes = ReporteD()  //TODO AQUI HAY QUE CHECAR LO DE LOGIN DESDE EL REPORTE
             val transaccionFragmento = parentFragmentManager.beginTransaction()
-            transaccionFragmento.replace(R.id.actividadInicio, fragmentListaReportes)
+            transaccionFragmento.replace(R.id.fragContViewInicio, fragmentListaReportes)
             transaccionFragmento.addToBackStack(null)
             transaccionFragmento.commit()
         }

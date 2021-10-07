@@ -13,9 +13,9 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import mx.itesm.testbasicapi.R
 import mx.itesm.testbasicapi.Utils
 import mx.itesm.testbasicapi.Utils.Companion.PRODUCT_ID_KEY
-import mx.itesm.testbasicapi.model.Model
-import mx.itesm.testbasicapi.model.entities.Product
-import mx.itesm.testbasicapi.model.repository.responseinterface.IGetProducts
+import mx.itesm.testbasicapi.model.ejemplo.Model
+import mx.itesm.testbasicapi.model.entities.ejemplo.Product
+import mx.itesm.testbasicapi.model.repository.responseinterface.ejemplo.IGetProducts
 
 
 class ProductsFragment : Fragment() {

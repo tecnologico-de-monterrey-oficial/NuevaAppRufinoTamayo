@@ -1,33 +1,35 @@
 package mx.itesm.testbasicapi.controller
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
 import mx.itesm.testbasicapi.R
+import mx.itesm.testbasicapi.Utils
+import mx.itesm.testbasicapi.controller.activities.Inicio
+import mx.itesm.testbasicapi.model.Usuario
+import mx.itesm.testbasicapi.model.entities.JwtToken
+import mx.itesm.testbasicapi.model.repository.RemoteRepository
+import mx.itesm.testbasicapi.model.repository.responseinterface.ICrearCuenta
+import mx.itesm.testbasicapi.model.repository.responseinterface.IIniciarSesion
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [CrearCuenta.newInstance] factory method to
- * create an instance of this fragment.
- */
 class CrearCuenta : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    lateinit var escribirNombre: EditText
+    lateinit var escribirApellido: EditText
+    lateinit var escribirCorreo: EditText
+    lateinit var escribirContrasenia: EditText
+    lateinit var escribirRepetirContrasenia: EditText
+    lateinit var textoMensajeError: TextView
+    lateinit var botonCrearCuenta: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
     }
 
     override fun onCreateView(
@@ -38,23 +40,93 @@ class CrearCuenta : Fragment() {
         return inflater.inflate(R.layout.fragment_crear_cuenta, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment CrearCuenta.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            CrearCuenta().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // Obtener las referencias
+        escribirNombre = view.findViewById(R.id.escribirNuevoNombre)
+        escribirApellido = view.findViewById(R.id.escribirNuevoApellido)
+        escribirCorreo = view.findViewById(R.id.escribirNuevoCorreo)
+        escribirContrasenia = view.findViewById(R.id.escribirNuevaContrasenia)
+        escribirRepetirContrasenia = view.findViewById(R.id.escribirNuevoRepetirContrasenia)
+        textoMensajeError = view.findViewById(R.id.textoNuevoError)
+        botonCrearCuenta = view.findViewById(R.id.botonNuevoCrearCuenta)
+
+        // Asignar los métodos a las referencias
+        botonCrearCuenta.setOnClickListener(crearCuenta(view))
+    }
+
+    private fun crearCuenta(view: View): View.OnClickListener {
+        return View.OnClickListener {
+            // Obtener los valores de los campos
+            var nombre = escribirNombre.text.toString()
+            var apellido = escribirApellido.text.toString()
+            var correo = escribirCorreo.text.toString()
+            var contrasenia = escribirContrasenia.text.toString()
+            var repetirContrasenia = escribirRepetirContrasenia.text.toString()
+            var pudoCrearCuenta: Boolean = false
+
+            // Validar los campos
+            if(
+                nombre != "" && apellido != "" && correo != "" && contrasenia != "" && repetirContrasenia != "" && // Que ninguno esté vacío
+                contrasenia == repetirContrasenia // Que los valores de los campos de contraseña y el de repetir contraseña coincidan
+            ) {
+                // Intentar crear la cuenta
+                Usuario(Utils.getToken(view.context)).crearCuenta(nombre, apellido, correo, contrasenia, repetirContrasenia, object:
+                    ICrearCuenta {
+                    override fun enExito(cuentaCreada: Boolean?) {
+                        Log.d("CrearCuenta", "Exito")
+                        pudoCrearCuenta = true
+
+                        // Si pudo crear la cuenta, intenta inciar sesion
+                        Log.d("IniciarSesion", "Afuera")
+                        Usuario(Utils.getToken(view.context)).iniciarSesion(correo, contrasenia, object: IIniciarSesion {
+                            override fun enExito(token: JwtToken?) {
+                                Log.d("IniciarSesion", "EnExito")
+                                if(token != null) {
+                                    Log.d("IniciarSesion", "Token")
+                                    textoMensajeError.text = token.token
+
+                                    Utils.saveToken(token, view.context)
+                                    RemoteRepository.updateRemoteReferences(token.token, view.context);
+
+                                    // Ir a la actividad de Inicio
+                                    val intentInicio = Intent(view.context, Inicio::class.java)
+                                    intentInicio.flags =
+                                        Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                                    startActivity(intentInicio)
+                                } else {
+                                    Log.d("IniciarSesion", "Mal")
+                                    textoMensajeError.text = "Algo salió mal"
+                                }
+                            }
+
+                            override fun enErrorServidor(codigo: Int, mensaje: String) {
+                                textoMensajeError.text = mensaje
+                            }
+
+                            override fun enOtroError(t: Throwable) {
+                                textoMensajeError.text = "Algo salió mal"
+                                Log.e("API", t.message, t)
+                            }
+                        })
+                        textoMensajeError.text = ""
+                    }
+
+                    override fun enErrorServidor(codigo: Int, mensaje: String) {
+                        Log.d("CrearCuenta", "ErrorServidor")
+                        textoMensajeError.text = mensaje
+                    }
+
+                    override fun enOtroError(t: Throwable) {
+                        Log.d("CrearCuenta", "OtroError")
+                        textoMensajeError.text = "Algo salió mal"
+                        Log.e("API", t.message, t)
+                    }
+                })
+            } else {
+                textoMensajeError.text = "Alguno de los campos están vacíos o las contraseñas no coninciden"
             }
+        }
     }
 }

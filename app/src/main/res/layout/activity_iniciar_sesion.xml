@@ -4,11 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/fondo"
-    tools:context=".controller.Autenticacion">
+    tools:context=".controller.activities.Autenticacion">
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerView2"
+        android:id="@+id/fragContViewAutenticacion"
         android:name="mx.itesm.testbasicapi.controller.IniciarSesion"
         android:layout_width="0dp"
         android:layout_height="0dp"

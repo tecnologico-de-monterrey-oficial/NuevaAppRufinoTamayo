@@ -33,12 +33,12 @@ class Visitante : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        //Boton de reportar accidentes
+        //Boton de reportar incidentes
         botonReportarIncidente = view.findViewById(R.id.botonPantallaReportar)
         botonReportarIncidente.setOnClickListener {
             val fragment = ReporteA()
             val transaccionFragmento = parentFragmentManager.beginTransaction()
-            transaccionFragmento.replace(R.id.actividadInicio, fragment)
+            transaccionFragmento.replace(R.id.fragContViewInicio, fragment)
             transaccionFragmento.addToBackStack(null)
             transaccionFragmento.commit()
         }
@@ -48,7 +48,7 @@ class Visitante : Fragment() {
         botonMisReportes.setOnClickListener {
             val fragment = ReportesVisitante()
             val transaccionFragmento = parentFragmentManager.beginTransaction()
-            transaccionFragmento.replace(R.id.actividadInicio, fragment)
+            transaccionFragmento.replace(R.id.fragContViewInicio, fragment)
             transaccionFragmento.addToBackStack(null)
             transaccionFragmento.commit()
         }
@@ -58,7 +58,7 @@ class Visitante : Fragment() {
         botonReglamento.setOnClickListener {
             val fragment = Reglamento()
             val transaccionFragmento = parentFragmentManager.beginTransaction()
-            transaccionFragmento.replace(R.id.actividadInicio, fragment)
+            transaccionFragmento.replace(R.id.fragContViewInicio, fragment)
             transaccionFragmento.addToBackStack(null)
             transaccionFragmento.commit()
         }
@@ -68,7 +68,7 @@ class Visitante : Fragment() {
         botonTemporal.setOnClickListener {
             val fragment = conCuenta()
             val transaccionFragmento = parentFragmentManager.beginTransaction()
-            transaccionFragmento.replace(R.id.actividadInicio, fragment)
+            transaccionFragmento.replace(R.id.fragContViewInicio, fragment)
             transaccionFragmento.addToBackStack(null)
             transaccionFragmento.commit()
         }

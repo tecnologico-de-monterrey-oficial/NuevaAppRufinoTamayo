@@ -22,9 +22,9 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import mx.itesm.testbasicapi.R
 import mx.itesm.testbasicapi.Utils
-import mx.itesm.testbasicapi.model.Model
-import mx.itesm.testbasicapi.model.entities.Product
-import mx.itesm.testbasicapi.model.repository.responseinterface.IAddProduct
+import mx.itesm.testbasicapi.model.ejemplo.Model
+import mx.itesm.testbasicapi.model.entities.ejemplo.Product
+import mx.itesm.testbasicapi.model.repository.responseinterface.ejemplo.IAddProduct
 import java.io.ByteArrayOutputStream
 
 class AddProductFragment : Fragment() {

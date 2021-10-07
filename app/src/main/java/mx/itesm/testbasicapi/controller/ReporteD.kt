@@ -28,7 +28,7 @@ class ReporteD : Fragment() {
         botonFinalizar.setOnClickListener {
             val fragmentListaReportes = Visitante()
             val transaccionFragmento = parentFragmentManager.beginTransaction()
-            transaccionFragmento.replace(R.id.actividadInicio, fragmentListaReportes)
+            transaccionFragmento.replace(R.id.fragContViewInicio, fragmentListaReportes)
             transaccionFragmento.addToBackStack(null)
             transaccionFragmento.commit()
         }
