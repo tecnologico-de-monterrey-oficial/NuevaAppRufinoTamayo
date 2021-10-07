@@ -14,6 +14,7 @@ class Visitante : Fragment() {
     lateinit var botonMisReportes: Button
     lateinit var botonReglamento: Button
     lateinit var botonTemporal: Button
+    lateinit var botonTemporal2: Button
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -66,6 +67,16 @@ class Visitante : Fragment() {
         botonTemporal = view.findViewById(R.id.goToSesion)
         botonTemporal.setOnClickListener {
             val fragment = conCuenta()
+            val transaccionFragmento = parentFragmentManager.beginTransaction()
+            transaccionFragmento.replace(R.id.actividadInicio, fragment)
+            transaccionFragmento.addToBackStack(null)
+            transaccionFragmento.commit()
+        }
+
+        //boton temporal de inicio de sesion para admin
+        botonTemporal2 = view.findViewById(R.id.goToAdmin)
+        botonTemporal2.setOnClickListener {
+            val fragment = Administrador()
             val transaccionFragmento = parentFragmentManager.beginTransaction()
             transaccionFragmento.replace(R.id.actividadInicio, fragment)
             transaccionFragmento.addToBackStack(null)
