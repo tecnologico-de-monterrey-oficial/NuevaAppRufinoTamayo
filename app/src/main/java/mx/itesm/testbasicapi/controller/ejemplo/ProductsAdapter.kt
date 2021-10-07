@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import mx.itesm.testbasicapi.R
 import mx.itesm.testbasicapi.Utils.Companion.BASE_URL
-import mx.itesm.testbasicapi.model.entities.Product
+import mx.itesm.testbasicapi.model.entities.ejemplo.Product
 import mx.itesm.testbasicapi.model.repository.RemoteRepository
 
 // https://guides.codepath.com/android/using-the-recyclerview

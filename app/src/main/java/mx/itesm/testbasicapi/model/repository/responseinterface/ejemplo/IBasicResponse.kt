@@ -1,4 +1,4 @@
-package mx.itesm.testbasicapi.model.repository.responseinterface
+package mx.itesm.testbasicapi.model.repository.responseinterface.ejemplo
 
 interface IBasicResponse {
     /**

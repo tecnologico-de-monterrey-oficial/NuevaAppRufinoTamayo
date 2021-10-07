@@ -1,13 +1,13 @@
-package mx.itesm.testbasicapi.model
+package mx.itesm.testbasicapi.model.ejemplo
 
 import com.google.gson.Gson
 import mx.itesm.testbasicapi.model.entities.JwtToken
-import mx.itesm.testbasicapi.model.entities.Product
-import mx.itesm.testbasicapi.model.entities.User
+import mx.itesm.testbasicapi.model.entities.ejemplo.Product
+import mx.itesm.testbasicapi.model.entities.ejemplo.User
 import mx.itesm.testbasicapi.model.repository.RemoteRepository
-import mx.itesm.testbasicapi.model.repository.backendinterface.ProductsApi
-import mx.itesm.testbasicapi.model.repository.backendinterface.UsersApi
-import mx.itesm.testbasicapi.model.repository.responseinterface.*
+import mx.itesm.testbasicapi.model.repository.backendinterface.ejemplo.ProductsApi
+import mx.itesm.testbasicapi.model.repository.backendinterface.ejemplo.UsersApi
+import mx.itesm.testbasicapi.model.repository.responseinterface.ejemplo.*
 import okhttp3.MediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody

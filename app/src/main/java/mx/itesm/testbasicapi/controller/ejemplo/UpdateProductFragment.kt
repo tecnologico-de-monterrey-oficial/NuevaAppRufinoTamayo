@@ -23,12 +23,12 @@ import androidx.fragment.app.Fragment
 import mx.itesm.testbasicapi.R
 import mx.itesm.testbasicapi.Utils
 import mx.itesm.testbasicapi.Utils.Companion.PRODUCT_ID_KEY
-import mx.itesm.testbasicapi.model.Model
-import mx.itesm.testbasicapi.model.entities.Product
+import mx.itesm.testbasicapi.model.ejemplo.Model
+import mx.itesm.testbasicapi.model.entities.ejemplo.Product
 import mx.itesm.testbasicapi.model.repository.RemoteRepository
-import mx.itesm.testbasicapi.model.repository.responseinterface.IDeleteProduct
-import mx.itesm.testbasicapi.model.repository.responseinterface.IGetProduct
-import mx.itesm.testbasicapi.model.repository.responseinterface.IUpdateProduct
+import mx.itesm.testbasicapi.model.repository.responseinterface.ejemplo.IDeleteProduct
+import mx.itesm.testbasicapi.model.repository.responseinterface.ejemplo.IGetProduct
+import mx.itesm.testbasicapi.model.repository.responseinterface.ejemplo.IUpdateProduct
 import java.io.ByteArrayOutputStream
 
 class UpdateProductFragment : Fragment() {

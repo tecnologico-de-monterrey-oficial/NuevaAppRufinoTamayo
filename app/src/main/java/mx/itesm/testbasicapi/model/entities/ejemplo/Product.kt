@@ -1,4 +1,4 @@
-package mx.itesm.testbasicapi.model.entities
+package mx.itesm.testbasicapi.model.entities.ejemplo
 
 import com.google.gson.annotations.SerializedName
 
