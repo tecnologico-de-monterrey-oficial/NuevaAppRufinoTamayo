@@ -2,13 +2,13 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/actividadInicio"
+    android:id="@+id/layoutInicio"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controller.Inicio">
+    tools:context=".controller.activities.Inicio">
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerView"
+        android:id="@+id/fragContViewInicio"
         android:name="mx.itesm.testbasicapi.controller.Visitante"
         android:layout_width="0dp"
         android:layout_height="0dp"

@@ -1,4 +1,4 @@
-package mx.itesm.testbasicapi.controller
+package mx.itesm.testbasicapi.controller.activities
 
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
