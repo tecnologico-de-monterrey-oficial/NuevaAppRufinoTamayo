@@ -29,7 +29,7 @@ class ReporteA : Fragment() {
         botonSiguiente.setOnClickListener {
             val fragment = ReporteB()
             val transaccionFragmento = parentFragmentManager.beginTransaction()
-            transaccionFragmento.replace(R.id.actividadInicio, fragment)
+            transaccionFragmento.replace(R.id.fragContViewInicio, fragment)
             transaccionFragmento.addToBackStack(null)
             transaccionFragmento.commit()
         }
