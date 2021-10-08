@@ -78,7 +78,7 @@ class Visitante : Fragment() {
         botonTemporal2.setOnClickListener {
             val fragment = Administrador()
             val transaccionFragmento = parentFragmentManager.beginTransaction()
-            transaccionFragmento.replace(R.id.actividadInicio, fragment)
+            transaccionFragmento.replace(R.id.fragContViewInicio, fragment)
             transaccionFragmento.addToBackStack(null)
             transaccionFragmento.commit()
         }

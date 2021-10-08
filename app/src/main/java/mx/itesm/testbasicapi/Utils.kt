@@ -3,11 +3,11 @@ package mx.itesm.testbasicapi
 import android.content.Context
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import mx.itesm.testbasicapi.model.entities.JwtToken
 
 class Utils {
     companion object {
         val BASE_URL = "http://10.0.2.2:3000/"
-        //val BASE_URL = "http://127.0.0.1:3000/"
         val PRODUCT_ID_KEY = "productId"
 
         private const val TOKEN_PREFS = "tokenPrefs"
