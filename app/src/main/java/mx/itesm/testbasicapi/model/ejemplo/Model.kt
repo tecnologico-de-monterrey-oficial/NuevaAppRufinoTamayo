@@ -1,7 +1,6 @@
 package mx.itesm.testbasicapi.model.ejemplo
 
 import com.google.gson.Gson
-import mx.itesm.testbasicapi.model.entities.JwtToken
 import mx.itesm.testbasicapi.model.entities.ejemplo.Product
 import mx.itesm.testbasicapi.model.entities.ejemplo.User
 import mx.itesm.testbasicapi.model.repository.RemoteRepository

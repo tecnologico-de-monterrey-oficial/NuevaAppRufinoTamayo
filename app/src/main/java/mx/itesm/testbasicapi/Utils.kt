@@ -3,7 +3,6 @@ package mx.itesm.testbasicapi
 import android.content.Context
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import mx.itesm.testbasicapi.model.entities.JwtToken
 
 class Utils {
     companion object {

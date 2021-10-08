@@ -12,11 +12,8 @@ import android.widget.EditText
 import android.widget.TextView
 import mx.itesm.testbasicapi.R
 import mx.itesm.testbasicapi.Utils
-import mx.itesm.testbasicapi.controller.activities.Autenticacion
 import mx.itesm.testbasicapi.controller.activities.Inicio
 import mx.itesm.testbasicapi.model.Usuario
-import mx.itesm.testbasicapi.model.entities.EUsuario
-import mx.itesm.testbasicapi.model.entities.JwtToken
 import mx.itesm.testbasicapi.model.repository.RemoteRepository
 import mx.itesm.testbasicapi.model.repository.responseinterface.IIniciarSesion
 

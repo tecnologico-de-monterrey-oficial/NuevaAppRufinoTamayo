@@ -33,7 +33,7 @@ class Administrador : Fragment() {
         verReportesAdministradorBTN.setOnClickListener {
             val fragment = ReportesAdministrador()
             val transaccionFragmento = parentFragmentManager.beginTransaction()
-            transaccionFragmento.replace(R.id.actividadInicio, fragment)
+            transaccionFragmento.replace(R.id.fragContViewInicio, fragment)
             transaccionFragmento.addToBackStack(null)
             transaccionFragmento.commit()
         }
@@ -43,7 +43,7 @@ class Administrador : Fragment() {
         administracionBTN.setOnClickListener {
             val fragment = ReportesAdministrador()
             val transaccionFragmento = parentFragmentManager.beginTransaction()
-            transaccionFragmento.replace(R.id.actividadInicio, fragment)
+            transaccionFragmento.replace(R.id.fragContViewInicio, fragment)
             transaccionFragmento.addToBackStack(null)
             transaccionFragmento.commit()
         }

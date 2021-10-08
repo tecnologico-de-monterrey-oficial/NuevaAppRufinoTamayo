@@ -11,7 +11,6 @@ import android.widget.Toast
 import mx.itesm.testbasicapi.R
 import mx.itesm.testbasicapi.Utils
 import mx.itesm.testbasicapi.model.ejemplo.Model
-import mx.itesm.testbasicapi.model.entities.JwtToken
 import mx.itesm.testbasicapi.model.entities.ejemplo.User
 import mx.itesm.testbasicapi.model.repository.RemoteRepository
 import mx.itesm.testbasicapi.model.repository.responseinterface.ejemplo.ILogin
