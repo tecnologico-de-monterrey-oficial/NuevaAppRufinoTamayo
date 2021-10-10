@@ -1,4 +1,4 @@
-package mx.itesm.testbasicapi.controller
+package mx.itesm.testbasicapi.controller.FragmentsDeReportes
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

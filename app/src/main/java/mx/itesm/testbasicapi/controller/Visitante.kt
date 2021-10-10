@@ -7,7 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import mx.itesm.testbasicapi.R
-import mx.itesm.testbasicapi.controller.ejemplo.AddProductFragment
+import mx.itesm.testbasicapi.controller.FragmentsDeReportes.ReporteA
+import mx.itesm.testbasicapi.controller.FragmentsDeReportes.ReporteB
 
 class Visitante : Fragment() {
     lateinit var botonReportarIncidente: Button
@@ -36,7 +37,7 @@ class Visitante : Fragment() {
         //Boton de reportar incidentes
         botonReportarIncidente = view.findViewById(R.id.botonPantallaReportar)
         botonReportarIncidente.setOnClickListener {
-            val fragment = ReporteA()
+            val fragment = ReporteB()
             val transaccionFragmento = parentFragmentManager.beginTransaction()
             transaccionFragmento.replace(R.id.fragContViewInicio, fragment)
             transaccionFragmento.addToBackStack(null)
@@ -78,7 +79,7 @@ class Visitante : Fragment() {
         botonTemporal2.setOnClickListener {
             val fragment = Administrador()
             val transaccionFragmento = parentFragmentManager.beginTransaction()
-            transaccionFragmento.replace(R.id.actividadInicio, fragment)
+            transaccionFragmento.replace(R.id.fragContViewInicio, fragment)
             transaccionFragmento.addToBackStack(null)
             transaccionFragmento.commit()
         }

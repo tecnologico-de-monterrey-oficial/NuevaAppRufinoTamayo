@@ -6,7 +6,7 @@
     android:background="@color/fondo"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controller.ReporteA" >
+    tools:context=".controller.FragmentsDeReportes.ReporteA" >
 
     <TextView
         android:id="@+id/textoReportarIncidenteA"

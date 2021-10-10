@@ -8,9 +8,15 @@
     <string name="hello_blank_fragment">This is the SHOP Fragment</string>
 
     <string-array name="Problematicas">
-        <item>problema1</item>
-        <item>problema2</item>
-        <item>problema3</item>
-        <item>problema4</item>
+        <item>Luminarias</item>
+        <item>Basura</item>
+        <item>Perro sin correa</item>
+        <item>Heces de perro</item>
+        <item>Ramas obstruyendo paso</item>
+        <item>Hierba crecida</item>
+        <item>Desperfecto en instalaciones</item>
+        <item>Mal uso de las instalaciones</item>
+        <item>Otro</item>
+
     </string-array>
 </resources>

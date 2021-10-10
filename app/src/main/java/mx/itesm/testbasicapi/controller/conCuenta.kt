@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import mx.itesm.testbasicapi.R
+import mx.itesm.testbasicapi.controller.FragmentsDeReportes.ReporteB
 
 
 class conCuenta : Fragment() {
@@ -29,7 +30,7 @@ class conCuenta : Fragment() {
         //boton reportar incidente
         reportarIncidente = view.findViewById(R.id.reportarIncidenteConCuentaBTN)
         reportarIncidente.setOnClickListener {
-            val fragment = ReporteA()
+            val fragment = ReporteB()
             val transaccionFragmento = parentFragmentManager.beginTransaction()
             transaccionFragmento.replace(R.id.fragContViewInicio, fragment)
             transaccionFragmento.addToBackStack(null)
