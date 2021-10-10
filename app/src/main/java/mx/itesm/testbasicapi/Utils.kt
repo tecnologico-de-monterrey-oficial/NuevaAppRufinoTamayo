@@ -33,6 +33,16 @@ class Utils {
             editor.commit()
         }
 
+        fun deleteToken(context: Context) {
+            val sharedPreferences = context.getSharedPreferences(
+                TOKEN_PREFS,
+                AppCompatActivity.MODE_PRIVATE
+            )
+            val editor = sharedPreferences.edit()
+            editor.remove(TOKEN_KEY)
+            editor.commit()
+        }
+
         fun isUserLoggedIn(context: Context): Boolean {
             val sharedPreferences = context.getSharedPreferences(
                 TOKEN_PREFS,

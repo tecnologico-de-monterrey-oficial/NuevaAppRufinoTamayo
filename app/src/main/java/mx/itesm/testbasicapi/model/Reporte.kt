@@ -1,12 +1,9 @@
 package mx.itesm.testbasicapi.model
 
-import mx.itesm.testbasicapi.model.entities.InputIniciarSesion
 import mx.itesm.testbasicapi.model.entities.InputObtenerResumenesReportes
 import mx.itesm.testbasicapi.model.repository.RemoteRepository
-import mx.itesm.testbasicapi.model.repository.backendinterface.ApiUsuarios
-import mx.itesm.testbasicapi.model.repository.responseinterface.OutputIniciarSesion
+import mx.itesm.testbasicapi.model.repository.backendinterface.ApiReportes
 import mx.itesm.testbasicapi.model.repository.responseinterface.OutputObtenerResumenesReportes
-import mx.itesm.testbasicapi.model.repository.responseinterface.RespuestaIniciarSesion
 import mx.itesm.testbasicapi.model.repository.responseinterface.RespuestaObtenerResumenesReportes
 import retrofit2.Call
 import retrofit2.Callback
