@@ -8,14 +8,90 @@ interface IRespuestaBasica {
     fun enOtroError(t: Throwable)
 }
 
-interface ICrearCuenta: IRespuestaBasica {
-    fun enExito(cuentaCreada: Boolean?)
+// Usuarios
+
+interface RespuestaCrearCuenta: IRespuestaBasica {
+    fun enExito()
 }
 
-interface IIniciarSesion: IRespuestaBasica {
-    fun enExito(token: JwtToken?)
+class OutputIniciarSesion(
+    var token: String,
+    var user_id: String
+) {}
+
+interface RespuestaIniciarSesion: IRespuestaBasica {
+    fun enExito(outputIniciarSesion: OutputIniciarSesion?)
 }
 
-interface IObtenerUsuario: IRespuestaBasica {
-    fun enExito(usuario: EUsuario?)
+class OutputObtenerUsuario(
+    var user_id: String,
+    var name: String,
+    var last_name: String
+) {}
+
+interface RespuestaObtenerUsuario: IRespuestaBasica {
+    fun enExito(outputObtenerUsuario: OutputObtenerUsuario?)
+}
+
+interface RespuestaCambiarContrasenia: IRespuestaBasica {
+    fun enExito()
+}
+
+interface RespuestaNombrarAdministrador: IRespuestaBasica {
+    fun enExito()
+}
+
+interface RespuestaNuevoAdministradorPrincipal: IRespuestaBasica {
+    fun enExito()
+}
+
+interface RespuestaBloquearReportesAnonimos: IRespuestaBasica {
+    fun enExito()
+}
+
+interface RespuestaBloquearVisitante: IRespuestaBasica {
+    fun enExito()
+}
+
+// Reportes
+
+class OutputObtenerReporte(
+    var user_id: String,
+    var name: String,
+    var last_name: String,
+    var subject: String,
+    var type_of_incident: String,
+    var description: String,
+    var is_urgent: String,
+    var status: String,
+    var photo: String?,
+    var location: String?
+) {}
+
+interface RespuestaObtenerReporte: IRespuestaBasica {
+    fun enExito(outputObtenerReporte: OutputObtenerReporte?)
+}
+
+class OutputObtenerResumenesReportes(
+    var subject: String,
+    var type_of_incident: String,
+    var status: String,
+    var is_urgent: String
+) {}
+
+interface RespuestaObtenerResumenesReportes: IRespuestaBasica {
+    fun enExito(outputObtenerResumenesReportes: List<OutputObtenerResumenesReportes>?)
+}
+
+class OutputObtenerRespuestasReporte(
+    var name: String,
+    var last_name: String,
+    var is_admin: String,
+    var message: String,
+    date: String,
+    hour: String
+) {}
+
+interface RespuestaObtenerRespuestasReporte: IRespuestaBasica {
+    fun enExito(outputObtenerRespuestasReporte: List<OutputObtenerRespuestasReporte>?)
 }
