@@ -1,4 +1,4 @@
-package mx.itesm.testbasicapi.controller
+package mx.itesm.testbasicapi.controller.FragmentsDeReportes
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import mx.itesm.testbasicapi.R
+import mx.itesm.testbasicapi.controller.Visitante
 
 class ReporteD : Fragment() {
     lateinit var botonFinalizar: Button
