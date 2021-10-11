@@ -37,6 +37,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textoMuchasGracias" />
 
+    <TextView
+        android:id="@+id/prueba"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/botonFinalizar"
+        app:layout_constraintTop_toBottomOf="@+id/gracias2TXT"
+        tools:layout_editor_absoluteX="205dp" />
+
     <Button
         android:id="@+id/botonFinalizar"
         android:layout_width="0dp"

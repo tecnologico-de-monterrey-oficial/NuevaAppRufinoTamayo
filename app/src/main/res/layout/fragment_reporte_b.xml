@@ -1,113 +1,58 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout6"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/fondo"
     tools:context=".controller.FragmentsDeReportes.ReporteB">
 
-
     <TextView
-        android:id="@+id/tituloTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:id="@+id/texto1p2TXT"
+        android:layout_width="357dp"
+        android:layout_height="67dp"
         android:fontFamily="@font/lato_bold"
-        android:text="Reportar Incidente"
-        android:textSize="40dp"
+        android:text="¿Te gustaria iniciar sesion con una cuenta antes de enviar el reporte?"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/texto2p2TXT"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/asuntoInputTXT"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Asunto"
+    <TextView
+        android:id="@+id/texto2p2TXT"
+        android:layout_width="354dp"
+        android:layout_height="158dp"
+        android:fontFamily="@font/lato"
+        android:text="Actualmente estas elaborando el reporte de forma anonima, pero si inicias sesion con una cuenta para enviar el reporte podras obtener respuesta a el por parde de los administradores"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/iniciarSesionDesdeReporteVisitanteBTN"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tituloTxt" />
-
-
-    <TextView
-        android:id="@+id/textoPrueba"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:text="*prueba de spinner*"
-        app:layout_constraintBottom_toTopOf="@+id/esUrgenteInputSWITCH"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.891"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/descripcionReporteInputTXT"
-        android:layout_width="258dp"
-        android:layout_height="213dp"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:fontFamily="@font/lato_bold"
-        android:inputType="textPersonName"
-        android:text="Descripcion"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/esUrgenteTXT" />
-
-    <TextView
-        android:id="@+id/esUrgenteTXT"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="84dp"
-        android:layout_marginTop="72dp"
-        android:fontFamily="@font/lato_bold"
-        android:text="Es urgente?"
-        android:textSize="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerIncidentes" />
-
-    <Switch
-        android:id="@+id/esUrgenteInputSWITCH"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="72dp"
-        android:text="Switch"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.266"
-        app:layout_constraintStart_toEndOf="@+id/esUrgenteTXT"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerIncidentes" />
+        app:layout_constraintTop_toBottomOf="@+id/texto1p2TXT" />
 
     <Button
-        android:id="@+id/botonEnviarReporte"
-        android:layout_width="351dp"
-        android:layout_height="47dp"
-        android:text="Siguiente"
+        android:id="@+id/iniciarSesionDesdeReporteVisitanteBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lato_bold"
+        android:text="Iniciar sesion con una cuenta nueva o existente"
+        app:layout_constraintBottom_toTopOf="@+id/continuarConElReporteVisitanteBTN"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/texto2p2TXT" />
+
+    <Button
+        android:id="@+id/continuarConElReporteVisitanteBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lato_bold"
+        android:text="Continuar con el reporte sin iniciar sesion con una cuenta"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/descripcionReporteInputTXT"
-        app:layout_constraintVertical_bias="0.537" />
-
-    <Spinner
-        android:id="@+id/spinnerIncidentes"
-        android:layout_width="209dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="32dp"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/asuntoInputTXT" />
-
-
+        app:layout_constraintTop_toBottomOf="@+id/iniciarSesionDesdeReporteVisitanteBTN" />
 </androidx.constraintlayout.widget.ConstraintLayout>

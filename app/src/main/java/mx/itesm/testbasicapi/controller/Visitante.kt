@@ -37,7 +37,7 @@ class Visitante : Fragment() {
         //Boton de reportar incidentes
         botonReportarIncidente = view.findViewById(R.id.botonPantallaReportar)
         botonReportarIncidente.setOnClickListener {
-            val fragment = ReporteB()
+            val fragment = ReporteA()
             val transaccionFragmento = parentFragmentManager.beginTransaction()
             transaccionFragmento.replace(R.id.fragContViewInicio, fragment)
             transaccionFragmento.addToBackStack(null)
