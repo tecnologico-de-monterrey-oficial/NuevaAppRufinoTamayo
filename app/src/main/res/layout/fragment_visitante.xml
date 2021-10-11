@@ -2,10 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout4"
+    android:id="@+id/layoutVisitante"
     android:layout_width="match_parent"
-    android:background="@color/fondo"
     android:layout_height="match_parent"
+    android:background="@color/fondo"
     tools:context=".controller.Visitante">
 
     <ImageView
@@ -24,12 +24,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="48dp"
         android:text="Reportar Incidente"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imagenRufinoTamayo" />
+        app:layout_constraintTop_toBottomOf="@+id/textoBienvenida" />
 
     <Button
         android:id="@+id/botonPantallaMisReportes"
@@ -50,27 +50,53 @@
         android:layout_marginStart="48dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="48dp"
-        android:text="Reglamento"
+        android:text="Reglamento del Parque"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/botonReportesIncidentes" />
+
+    <Button
+        android:id="@+id/botonCerrarSesion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="Cerrar Sesión"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/botonAdministracion" />
+
+    <Button
+        android:id="@+id/botonAdministracion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="48dp"
+        android:text="Administración"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/botonPantallaReglamento" />
+
+    <Button
+        android:id="@+id/botonReportesIncidentes"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="48dp"
+        android:text="Reportes de Incidentes"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/botonPantallaMisReportes" />
 
-    <Button
-        android:id="@+id/goToSesion"
+    <TextView
+        android:id="@+id/textoBienvenida"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TEMPORAL PARA VER EL OTRO MENU"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <Button
-        android:id="@+id/goToAdmin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:text="Temporal para ver el menu admin"
-        app:layout_constraintBottom_toTopOf="@+id/goToSesion"
+        android:layout_marginTop="24dp"
+        android:text="Bienvenido!"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imagenRufinoTamayo" />
 </androidx.constraintlayout.widget.ConstraintLayout>

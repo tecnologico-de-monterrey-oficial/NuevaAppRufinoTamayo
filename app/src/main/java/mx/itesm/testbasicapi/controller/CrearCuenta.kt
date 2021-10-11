@@ -16,8 +16,9 @@ import mx.itesm.testbasicapi.controller.activities.Inicio
 import mx.itesm.testbasicapi.model.Usuario
 import mx.itesm.testbasicapi.model.entities.JwtToken
 import mx.itesm.testbasicapi.model.repository.RemoteRepository
-import mx.itesm.testbasicapi.model.repository.responseinterface.ICrearCuenta
-import mx.itesm.testbasicapi.model.repository.responseinterface.IIniciarSesion
+import mx.itesm.testbasicapi.model.repository.responseinterface.OutputIniciarSesion
+import mx.itesm.testbasicapi.model.repository.responseinterface.RespuestaCrearCuenta
+import mx.itesm.testbasicapi.model.repository.responseinterface.RespuestaIniciarSesion
 
 class CrearCuenta : Fragment() {
     lateinit var escribirNombre: EditText
@@ -73,22 +74,22 @@ class CrearCuenta : Fragment() {
             ) {
                 // Intentar crear la cuenta
                 Usuario(Utils.getToken(view.context)).crearCuenta(nombre, apellido, correo, contrasenia, repetirContrasenia, object:
-                    ICrearCuenta {
-                    override fun enExito(cuentaCreada: Boolean?) {
+                    RespuestaCrearCuenta {
+                    override fun enExito() {
                         Log.d("CrearCuenta", "Exito")
                         pudoCrearCuenta = true
 
                         // Si pudo crear la cuenta, intenta inciar sesion
                         Log.d("IniciarSesion", "Afuera")
-                        Usuario(Utils.getToken(view.context)).iniciarSesion(correo, contrasenia, object: IIniciarSesion {
-                            override fun enExito(token: JwtToken?) {
+                        Usuario(Utils.getToken(view.context)).iniciarSesion(correo, contrasenia, object: RespuestaIniciarSesion {
+                            override fun enExito(outputIniciarSesion: OutputIniciarSesion?) {
                                 Log.d("IniciarSesion", "EnExito")
-                                if(token != null) {
+                                if(outputIniciarSesion != null) {
                                     Log.d("IniciarSesion", "Token")
-                                    textoMensajeError.text = token.token
+                                    textoMensajeError.text = outputIniciarSesion.token
 
-                                    Utils.saveToken(token, view.context)
-                                    RemoteRepository.updateRemoteReferences(token.token, view.context);
+                                    Utils.saveToken(JwtToken(outputIniciarSesion.token), view.context)
+                                    RemoteRepository.updateRemoteReferences(outputIniciarSesion.token, view.context);
 
                                     // Ir a la actividad de Inicio
                                     val intentInicio = Intent(view.context, Inicio::class.java)

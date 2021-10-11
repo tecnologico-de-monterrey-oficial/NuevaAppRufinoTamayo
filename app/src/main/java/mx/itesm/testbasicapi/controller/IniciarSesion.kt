@@ -16,7 +16,8 @@ import mx.itesm.testbasicapi.controller.activities.Inicio
 import mx.itesm.testbasicapi.model.Usuario
 import mx.itesm.testbasicapi.model.entities.JwtToken
 import mx.itesm.testbasicapi.model.repository.RemoteRepository
-import mx.itesm.testbasicapi.model.repository.responseinterface.IIniciarSesion
+import mx.itesm.testbasicapi.model.repository.responseinterface.OutputIniciarSesion
+import mx.itesm.testbasicapi.model.repository.responseinterface.RespuestaIniciarSesion
 
 
 class IniciarSesion : Fragment() {
@@ -64,13 +65,13 @@ class IniciarSesion : Fragment() {
             val correo = escribirCorreo.text.toString()
             val contrasenia = escribirContrasenia.text.toString()
             if(correo != "" && contrasenia != "") {
-                Usuario(Utils.getToken(view.context)).iniciarSesion(correo, contrasenia, object: IIniciarSesion {
-                    override fun enExito(token: JwtToken?) {
-                        if(token != null) {
-                            textoMensajeError.text = token.token
+                Usuario(Utils.getToken(view.context)).iniciarSesion(correo, contrasenia, object: RespuestaIniciarSesion {
+                    override fun enExito(outputIniciarSesion: OutputIniciarSesion?) {
+                        if(outputIniciarSesion != null) {
+                            textoMensajeError.text = outputIniciarSesion.token
 
-                            Utils.saveToken(token, view.context)
-                            RemoteRepository.updateRemoteReferences(token.token, view.context);
+                            Utils.saveToken(JwtToken(outputIniciarSesion.token), view.context)
+                            RemoteRepository.updateRemoteReferences(outputIniciarSesion.token, view.context);
 
                             // Ir a la actividad de inicio
                             val intentInicio = Intent(view.context, Inicio::class.java)
