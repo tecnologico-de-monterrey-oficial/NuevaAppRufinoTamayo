@@ -1,17 +1,19 @@
-package mx.itesm.testbasicapi.controller.FragmentsDeReportes
+package mx.itesm.testbasicapi.controller
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.Button
+import kotlinx.android.synthetic.main.fragment_reporte_individual_administrador.view.*
 import mx.itesm.testbasicapi.R
+import mx.itesm.testbasicapi.controller.FragmentsDeReportes.ReporteC
 
 
-class ReporteB : Fragment() {
-    lateinit var botonSeguirSinCuentaa: Button
-    lateinit var botonSeguirConCuenta: Button
+class ReporteIndividualAdministrador : Fragment() {
+    lateinit var botonResponder: Button
+    lateinit var botonRegresar: Button
 
 
 
@@ -20,32 +22,43 @@ class ReporteB : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_reporte_b, container, false)
-    }
 
+        val view =inflater.inflate(
+            R.layout.fragment_reporte_individual_administrador,
+            container,
+            false
+        )
+
+        view.tituloReporte.text = "el text" // aqui
+        view.descripcionReporte.text = "el otro text" //el otro
+
+        return view
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //boton de seguir sin cuenta
-        botonSeguirSinCuentaa = view.findViewById(R.id.continuarConElReporteVisitanteBTN)
-        botonSeguirSinCuentaa.setOnClickListener {
-            val fragmentListaReportes = ReporteC()
+
+
+        //boton de responder
+        botonResponder = view.findViewById(R.id.enviarRespuestaBTN)
+        botonResponder.setOnClickListener {
+            val fragmentListaReportes = RespuestaAdministrador()
             val transaccionFragmento = parentFragmentManager.beginTransaction()
             transaccionFragmento.replace(R.id.fragContViewInicio, fragmentListaReportes)
             transaccionFragmento.addToBackStack(null)
             transaccionFragmento.commit()
         }
 
-        //boton de seguir con cuenta
-        botonSeguirConCuenta = view.findViewById(R.id.iniciarSesionDesdeReporteVisitanteBTN)
-        botonSeguirConCuenta.setOnClickListener {
-            val fragmentListaReportes = ReporteC()  //TODO AQUI HAY QUE CHECAR LO DE LOGIN DESDE EL REPORTE
+        //boton de regresar
+        botonRegresar = view.findViewById(R.id.regresarDeRespuesta)
+        botonRegresar.setOnClickListener {
+            val fragmentListaReportes = ReportesAdministrador()
             val transaccionFragmento = parentFragmentManager.beginTransaction()
             transaccionFragmento.replace(R.id.fragContViewInicio, fragmentListaReportes)
             transaccionFragmento.addToBackStack(null)
             transaccionFragmento.commit()
         }
     }
-}
 
+}
