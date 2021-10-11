@@ -16,7 +16,7 @@ class ReporteA : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        // Inflate the layout for this fragment 410
         return inflater.inflate(R.layout.fragment_reporte_a, container, false)
     }
 

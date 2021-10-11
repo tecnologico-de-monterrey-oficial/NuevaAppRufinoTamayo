@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.Toast
 import mx.itesm.testbasicapi.R
 import mx.itesm.testbasicapi.Utils
+import mx.itesm.testbasicapi.controller.FragmentsDeReportes.ReporteA
 import mx.itesm.testbasicapi.controller.FragmentsDeReportes.ReporteB
 import mx.itesm.testbasicapi.controller.activities.Autenticacion
 
