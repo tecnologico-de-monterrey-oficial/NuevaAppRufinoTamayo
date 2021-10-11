@@ -22,10 +22,7 @@ import java.util.*
 import android.widget.Toast
 import androidx.core.location.LocationManagerCompat.getCurrentLocation
 import android.widget.CompoundButton
-
-
-
-
+import kotlinx.android.synthetic.main.fragment_reporte_c.view.*
 
 
 class ReporteC : Fragment() {
@@ -33,7 +30,11 @@ class ReporteC : Fragment() {
 
     lateinit var tvLatitude: TextView
     lateinit var tvLongitude: TextView
-    lateinit var tvAddress : TextView
+    lateinit var descripcionReporte : TextView
+
+    var auxiliar = ""
+
+    var displayMessage: String? = ""
 
     lateinit var fusedLocationProviderClient: FusedLocationProviderClient
 
@@ -44,8 +45,21 @@ class ReporteC : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val view = inflater.inflate(R.layout.fragment_reporte_c, container, false)
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_reporte_c, container, false)
+        displayMessage = arguments?.getString("message")
+        val aux = displayMessage.toString()
+        val list: List<String> = listOf(*aux.split(",").toTypedArray())
+        auxiliar= displayMessage.toString()
+        //Toast.makeText(requireActivity(), displayMessage.toString(), Toast.LENGTH_SHORT).show()
+
+        view.tv_lat.text = auxiliar
+
+
+
+        return view
+
+
     }
 
 
@@ -54,7 +68,9 @@ class ReporteC : Fragment() {
 
         tvLatitude = view.findViewById(R.id.tv_lat)
         tvLongitude = view.findViewById(R.id.tv_lon)
-        tvAddress = view.findViewById(R.id.esUrgenteTXT)
+        descripcionReporte = view.findViewById(R.id.descripcionReporteInputTXT)
+
+
 
         //switch gps
         GPSSwitch = view.findViewById(R.id.GPSSwitch)
@@ -63,25 +79,39 @@ class ReporteC : Fragment() {
                 fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(requireActivity())
 
                 checkLocationPermission()
-                // The toggle is enabled
             } else {
-                // The toggle is disabled
+                sinGps()
             }
+
+
         })
 
         //boton siguiente
         botonSiguiente = view.findViewById(R.id.botonSiguiente)
         botonSiguiente.setOnClickListener {
+
+
+            //Toast.makeText(requireActivity(), auxiliar, Toast.LENGTH_SHORT).show()
+
+
+/*
             val fragmentListaReportes = ReporteD()
             val transaccionFragmento = parentFragmentManager.beginTransaction()
             transaccionFragmento.replace(R.id.fragContViewInicio, fragmentListaReportes)
             transaccionFragmento.addToBackStack(null)
-            transaccionFragmento.commit()
+            transaccionFragmento.commit()*/
         }
 
 
 
 
+    }
+
+    private fun sinGps() {
+        tvLatitude.setText("0")
+        tvLongitude.setText("0")
+        Toast.makeText(requireActivity(), "Si es necesario especifica la ubicacion en la descripcion", Toast.LENGTH_SHORT).show()
+        return
     }
 
     private fun checkLocationPermission() {
@@ -93,7 +123,7 @@ class ReporteC : Fragment() {
         }
 
         task.addOnSuccessListener {
-            Toast.makeText(requireActivity(), "asdfasdf", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(requireActivity(), "prueba", Toast.LENGTH_SHORT).show()
             if(it != null){
                 tvLatitude.setText(it.getLatitude().toString())
                 tvLongitude.setText(it.getLongitude().toString())
@@ -102,4 +132,6 @@ class ReporteC : Fragment() {
         }
         return
     }
+
+
 }

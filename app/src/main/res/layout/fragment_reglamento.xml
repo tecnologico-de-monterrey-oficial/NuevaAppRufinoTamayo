@@ -8,6 +8,7 @@
     tools:context=".controller.Reglamento">
 
     <TextView
+        android:id="@+id/textView2"
         android:layout_width="101dp"
         android:layout_height="29dp"
         android:text="Reglamento"
@@ -23,6 +24,20 @@
         android:text="Regresar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Horario 6:00 am a 10:00 pm
+Estacionamiento exclusivo para usuarios.
+Deposita la basura en su lugar.
+Cuida la flora y  fauna del parque."
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

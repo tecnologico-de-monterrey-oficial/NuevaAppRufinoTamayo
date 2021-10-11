@@ -6,17 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.TextView
-import android.widget.Toast
+import kotlinx.android.synthetic.main.fragment_reporte_individual_administrador.view.*
 import mx.itesm.testbasicapi.R
 import mx.itesm.testbasicapi.controller.FragmentsDeReportes.ReporteC
 
 
-class ReportesVisitante : Fragment() {
-    lateinit var botonRegresar: Button
+class ReporteIndividualAdministrador : Fragment() {
     lateinit var botonResponder: Button
-
-    lateinit var respuesta: TextView
+    lateinit var botonRegresar: Button
 
 
 
@@ -25,40 +22,43 @@ class ReportesVisitante : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_reportes_visitante, container, false)
+
+        val view =inflater.inflate(
+            R.layout.fragment_reporte_individual_administrador,
+            container,
+            false
+        )
+
+        view.tituloReporte.text = "el text" // aqui
+        view.descripcionReporte.text = "el otro text" //el otro
+
+        return view
     }
-
-
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        respuesta = view.findViewById(R.id.descripcionReporteOutputTXT)
 
-        respuesta.text="respuesta" //TODO conexion
 
         //boton de responder
-        botonResponder = view.findViewById(R.id.enviarRespuesta)
+        botonResponder = view.findViewById(R.id.enviarRespuestaBTN)
         botonResponder.setOnClickListener {
-            //enviar esto: responderReporte.text
-
-
-            //TODO enviar respuesta
-
-            Toast.makeText(requireActivity(), "Respuesta enviada", Toast.LENGTH_LONG).show()
+            val fragmentListaReportes = RespuestaAdministrador()
+            val transaccionFragmento = parentFragmentManager.beginTransaction()
+            transaccionFragmento.replace(R.id.fragContViewInicio, fragmentListaReportes)
+            transaccionFragmento.addToBackStack(null)
+            transaccionFragmento.commit()
         }
 
         //boton de regresar
-        botonRegresar = view.findViewById(R.id.regresarDeReportes)
+        botonRegresar = view.findViewById(R.id.regresarDeRespuesta)
         botonRegresar.setOnClickListener {
-            val fragmentListaReportes = Visitante()
+            val fragmentListaReportes = ReportesAdministrador()
             val transaccionFragmento = parentFragmentManager.beginTransaction()
             transaccionFragmento.replace(R.id.fragContViewInicio, fragmentListaReportes)
             transaccionFragmento.addToBackStack(null)
             transaccionFragmento.commit()
         }
     }
-
 
 }
