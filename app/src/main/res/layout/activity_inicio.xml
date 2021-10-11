@@ -9,12 +9,12 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragContViewInicio"
-        android:name="mx.itesm.testbasicapi.controller.Visitante"
+        android:name="mx.itesm.testbasicapi.controller.Menu"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout="@layout/fragment_visitante" />
+        tools:layout="@layout/fragment_menu" />
 </androidx.constraintlayout.widget.ConstraintLayout>

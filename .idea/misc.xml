@@ -11,18 +11,23 @@
         <entry key="..\:/ProyectosAndroid/TestingProductsAPI/app/src/main/res/layout/fragment_administracion.xml" value="0.13269424823410697" />
         <entry key="..\:/ProyectosAndroid/TestingProductsAPI/app/src/main/res/layout/fragment_administrador.xml" value="0.13269424823410697" />
         <entry key="..\:/ProyectosAndroid/TestingProductsAPI/app/src/main/res/layout/fragment_con_cuenta.xml" value="0.13269424823410697" />
-        <entry key="..\:/ProyectosAndroid/TestingProductsAPI/app/src/main/res/layout/fragment_configuracion.xml" value="0.13269424823410697" />
+        <entry key="..\:/ProyectosAndroid/TestingProductsAPI/app/src/main/res/layout/fragment_configuracion.xml" value="0.22" />
         <entry key="..\:/ProyectosAndroid/TestingProductsAPI/app/src/main/res/layout/fragment_crear_cuenta.xml" value="0.3333333333333333" />
-        <entry key="..\:/ProyectosAndroid/TestingProductsAPI/app/src/main/res/layout/fragment_iniciar_sesion.xml" value="0.3333333333333333" />
+        <entry key="..\:/ProyectosAndroid/TestingProductsAPI/app/src/main/res/layout/fragment_iniciar_sesion.xml" value="0.22" />
         <entry key="..\:/ProyectosAndroid/TestingProductsAPI/app/src/main/res/layout/fragment_inicio_cuenta.xml" value="0.21693840579710144" />
+        <entry key="..\:/ProyectosAndroid/TestingProductsAPI/app/src/main/res/layout/fragment_menu.xml" value="0.22" />
         <entry key="..\:/ProyectosAndroid/TestingProductsAPI/app/src/main/res/layout/fragment_products.xml" value="0.13269424823410697" />
         <entry key="..\:/ProyectosAndroid/TestingProductsAPI/app/src/main/res/layout/fragment_reglamento.xml" value="0.13333333333333333" />
         <entry key="..\:/ProyectosAndroid/TestingProductsAPI/app/src/main/res/layout/fragment_reporte_a.xml" value="0.16666666666666666" />
-        <entry key="..\:/ProyectosAndroid/TestingProductsAPI/app/src/main/res/layout/fragment_reporte_b.xml" value="0.16259057971014493" />
+        <entry key="..\:/ProyectosAndroid/TestingProductsAPI/app/src/main/res/layout/fragment_reporte_b.xml" value="0.3333333333333333" />
         <entry key="..\:/ProyectosAndroid/TestingProductsAPI/app/src/main/res/layout/fragment_reporte_c.xml" value="0.16259057971014493" />
-        <entry key="..\:/ProyectosAndroid/TestingProductsAPI/app/src/main/res/layout/fragment_reportes_administrador.xml" value="0.16666666666666666" />
-        <entry key="..\:/ProyectosAndroid/TestingProductsAPI/app/src/main/res/layout/fragment_reportes_visitante.xml" value="0.12228260869565218" />
-        <entry key="..\:/ProyectosAndroid/TestingProductsAPI/app/src/main/res/layout/fragment_respuesta_visitante.xml" value="0.13269424823410697" />
+        <entry key="..\:/ProyectosAndroid/TestingProductsAPI/app/src/main/res/layout/fragment_reporte_d.xml" value="0.2341485507246377" />
+        <entry key="..\:/ProyectosAndroid/TestingProductsAPI/app/src/main/res/layout/fragment_reportes.xml" value="0.3333333333333333" />
+        <entry key="..\:/ProyectosAndroid/TestingProductsAPI/app/src/main/res/layout/fragment_reportes_administrador.xml" value="0.22" />
+        <entry key="..\:/ProyectosAndroid/TestingProductsAPI/app/src/main/res/layout/fragment_reportes_visitante.xml" value="0.22" />
+        <entry key="..\:/ProyectosAndroid/TestingProductsAPI/app/src/main/res/layout/fragment_respuesta.xml" value="0.24048913043478262" />
+        <entry key="..\:/ProyectosAndroid/TestingProductsAPI/app/src/main/res/layout/fragment_respuesta_administrador.xml" value="0.2341485507246377" />
+        <entry key="..\:/ProyectosAndroid/TestingProductsAPI/app/src/main/res/layout/fragment_respuesta_visitante.xml" value="0.3333333333333333" />
         <entry key="..\:/ProyectosAndroid/TestingProductsAPI/app/src/main/res/layout/fragment_shop.xml" value="0.13269424823410697" />
         <entry key="..\:/ProyectosAndroid/TestingProductsAPI/app/src/main/res/layout/fragment_vacio.xml" value="0.22" />
         <entry key="..\:/ProyectosAndroid/TestingProductsAPI/app/src/main/res/layout/fragment_visitante.xml" value="0.22" />

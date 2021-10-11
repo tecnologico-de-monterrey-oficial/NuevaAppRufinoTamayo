@@ -26,7 +26,8 @@ interface RespuestaIniciarSesion: IRespuestaBasica {
 class OutputObtenerUsuario(
     var user_id: String,
     var name: String,
-    var last_name: String
+    var last_name: String,
+    var is_admin: Boolean
 ) {}
 
 interface RespuestaObtenerUsuario: IRespuestaBasica {
@@ -55,6 +56,10 @@ interface RespuestaBloquearVisitante: IRespuestaBasica {
 
 // Reportes
 
+interface RespuestaCrearReporte: IRespuestaBasica {
+    fun enExito()
+}
+
 class OutputObtenerReporte(
     var user_id: String,
     var name: String,
@@ -81,6 +86,10 @@ class OutputObtenerResumenesReportes(
 
 interface RespuestaObtenerResumenesReportes: IRespuestaBasica {
     fun enExito(outputObtenerResumenesReportes: List<OutputObtenerResumenesReportes>?)
+}
+
+interface RespuestaResponderReporte: IRespuestaBasica {
+    fun enExito()
 }
 
 class OutputObtenerRespuestasReporte(

@@ -52,6 +52,21 @@ class InputBloquearReportesAnonimos(
 
 // Reportes
 
+class InputCrearReporte(
+    var token: String?,
+    var subject: String,
+    var type_of_incident: String,
+    var description: String,
+    var is_urgent: Boolean,
+    var photo: String?,
+    var location: String?
+) {}
+
+class InputObtenerReporte(
+    var token: String,
+    var report_id: String
+) {}
+
 class InputObtenerResumenesReportes(
     var token: String,
     var user_id: String?,
@@ -59,6 +74,18 @@ class InputObtenerResumenesReportes(
     var type_of_visitor: String?,
     var status: String?,
     var antiquity: String?
+) {}
+
+class InputResponderReporte(
+    var token: String,
+    var report_id: String,
+    var message: String,
+    var new_status: String?
+) {}
+
+class InputObtenerRespuestasReporte(
+    var token: String,
+    var report_id: String
 ) {}
 
 // Otras Cosas

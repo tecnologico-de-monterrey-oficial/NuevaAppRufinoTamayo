@@ -23,8 +23,8 @@ import mx.itesm.testbasicapi.model.repository.responseinterface.RespuestaIniciar
 class IniciarSesion : Fragment() {
     lateinit var escribirCorreo: EditText
     lateinit var escribirContrasenia: EditText
-    lateinit var textoOlvideContrasenia: TextView
-    lateinit var textoCrearCuenta: TextView
+    lateinit var botonOlvideContrasenia: Button
+    lateinit var botonNoTengoCuenta: Button
     lateinit var textoMensajeError: TextView
     lateinit var botonContinuarSinIniciarSesion: Button
     lateinit var botonIniciarSesion: Button
@@ -48,14 +48,16 @@ class IniciarSesion : Fragment() {
         // Asignaciones de referencias
         escribirCorreo = view.findViewById(R.id.escribirCorreo)
         escribirContrasenia = view.findViewById(R.id.escribirContrasenia)
-        textoOlvideContrasenia = view.findViewById(R.id.textoOlvideContrasenia)
-        textoCrearCuenta = view.findViewById(R.id.textoNoTienesCuenta)
+        botonOlvideContrasenia = view.findViewById(R.id.botonOlvideMiContrasenia)
+        botonNoTengoCuenta = view.findViewById(R.id.botonNoTengoCuenta)
         textoMensajeError = view.findViewById(R.id.textoError)
         botonContinuarSinIniciarSesion = view.findViewById(R.id.botonContinuarSinIniciarSesion)
         botonIniciarSesion = view.findViewById(R.id.botonIniciarSesion)
 
+        textoMensajeError.setVisibility(View.GONE)
+
         // Asignaciones de Click Listeners
-        textoCrearCuenta.setOnClickListener(irACrearCuenta())
+        botonNoTengoCuenta.setOnClickListener(irACrearCuenta())
         botonContinuarSinIniciarSesion.setOnClickListener(irAlInicio(view))
         botonIniciarSesion.setOnClickListener(iniciarSesion(view))
     }
@@ -68,6 +70,7 @@ class IniciarSesion : Fragment() {
                 Usuario(Utils.getToken(view.context)).iniciarSesion(correo, contrasenia, object: RespuestaIniciarSesion {
                     override fun enExito(outputIniciarSesion: OutputIniciarSesion?) {
                         if(outputIniciarSesion != null) {
+                            textoMensajeError.setVisibility(View.VISIBLE)
                             textoMensajeError.text = outputIniciarSesion.token
 
                             Utils.saveToken(JwtToken(outputIniciarSesion.token), view.context)
@@ -79,21 +82,26 @@ class IniciarSesion : Fragment() {
                                 Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                             startActivity(intentInicio)
                         } else {
+                            textoMensajeError.setVisibility(View.VISIBLE)
                             textoMensajeError.text = "Algo salió mal"
                         }
                     }
 
                     override fun enErrorServidor(codigo: Int, mensaje: String) {
+                        textoMensajeError.setVisibility(View.VISIBLE)
                         textoMensajeError.text = mensaje
                     }
 
                     override fun enOtroError(t: Throwable) {
+                        textoMensajeError.setVisibility(View.VISIBLE)
                         textoMensajeError.text = "Algo salió mal"
                         Log.e("API", t.message, t)
                     }
                 })
+                textoMensajeError.setVisibility(View.VISIBLE)
                 textoMensajeError.text = ""
             } else {
+                textoMensajeError.setVisibility(View.VISIBLE)
                 textoMensajeError.text = "ERROR: No se introdujo el correo o la contraseña"
             }
         }
@@ -106,10 +114,6 @@ class IniciarSesion : Fragment() {
                 Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intentInicio)
         }
-
-        //Iniciar sesion con Cuenta
-        //TODO HACER LA VERIFICACION
-
     }
 
     private fun irACrearCuenta(): View.OnClickListener? {
