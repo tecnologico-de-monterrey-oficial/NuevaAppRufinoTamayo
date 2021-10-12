@@ -6,12 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import kotlinx.android.synthetic.main.activity_inicio.*
 import mx.itesm.testbasicapi.R
 
 
 class ReporteA : Fragment() {
-    lateinit var botonSiguiente: Button
+    lateinit var botonSeguirSinCuentaa: Button
+    lateinit var botonSeguirConCuenta: Button
 
     private lateinit var communicator: Communicator
     private val list = ArrayList<String>(7)
@@ -88,7 +88,13 @@ class ReporteA : Fragment() {
 /*
             val fragmentListaReportes = ReporteC()
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
+        //boton de seguir sin cuenta
+        botonSeguirSinCuentaa = view.findViewById(R.id.continuarConElReporteVisitanteBTN)
+        botonSeguirSinCuentaa.setOnClickListener {
+            val fragmentListaReportes = ReporteB()
             val transaccionFragmento = parentFragmentManager.beginTransaction()
             transaccionFragmento.replace(R.id.fragContViewInicio, fragmentListaReportes)
             transaccionFragmento.addToBackStack(null)
@@ -128,16 +134,6 @@ class ReporteA : Fragment() {
 
 
         }
-
-        return view
-
     }
-
-    // 81 89 88 2000
-/*
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-
-    }*/
 }
+

@@ -2,16 +2,18 @@ package mx.itesm.testbasicapi.controller
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import kotlinx.android.synthetic.main.fragment_menu.*
+import android.widget.Toast
 import mx.itesm.testbasicapi.R
 import mx.itesm.testbasicapi.Utils
 import mx.itesm.testbasicapi.controller.FragmentsDeAdmin.Administracion
+import mx.itesm.testbasicapi.controller.FragmentsDeReportes.ReporteA
 import mx.itesm.testbasicapi.controller.FragmentsDeReportes.ReporteB
 import mx.itesm.testbasicapi.controller.activities.Autenticacion
 import mx.itesm.testbasicapi.model.Usuario
@@ -58,15 +60,20 @@ class Menu : Fragment() {
         botonAdministracion.setVisibility(View.GONE)
         botonCerrarSesion.setVisibility(View.GONE)
 
+        Log.d("ObtenerUsuario", "0")
         if(Utils.isUserLoggedIn(view.context)) {
+            Log.d("ObtenerUsuario", "1")
             botonIniciarSesion.setVisibility(View.GONE)
-            Usuario(Utils.getToken(view.context)).obtenerUsuario(Utils.getToken(view.context), "cesar@rufino.com", object: RespuestaObtenerUsuario {
+            botonCerrarSesion.setVisibility(View.VISIBLE)
+            Usuario(Utils.getToken(view.context)).obtenerUsuario(Utils.getToken(view.context), object: RespuestaObtenerUsuario {
                 override fun enExito(outputObtenerUsuario: OutputObtenerUsuario?) {
+                    Log.d("ObtenerUsuario", "2")
                     if(outputObtenerUsuario != null) {
+                        Log.d("ObtenerUsuario", "3")
                         textoBienvenida.text = "Bienvenido " + outputObtenerUsuario.name + " " + outputObtenerUsuario.last_name + "!"
-                        botonCerrarSesion.setVisibility(View.VISIBLE)
 
-                        if(outputObtenerUsuario.is_admin) {
+                        if(outputObtenerUsuario.type == "Administrador") {
+                            Log.d("ObtenerUsuario", "4")
                             botonReportarIncidente.setVisibility(View.GONE)
                             botonMisReportes.setVisibility(View.GONE)
                             botonReportesIncidentes.setVisibility(View.VISIBLE)
@@ -77,11 +84,13 @@ class Menu : Fragment() {
                 }
 
                 override fun enErrorServidor(codigo: Int, mensaje: String) {
-                    // Nada
+                    Toast.makeText(view.context, "No se pudo obtener tu usuario", Toast.LENGTH_LONG)
+                    Log.d("ObtenerUsuario", "No se pudo obtener tu usuario")
                 }
 
                 override fun enOtroError(t: Throwable) {
-                    // Nada
+                    Toast.makeText(view.context, "Algo salió mal, vuelte a intentarlo mas tarde", Toast.LENGTH_LONG)
+                    Log.d("ObtenerUsuario", "Algo salió mal, vuelte a intentarlo mas tarde")
                 }
             })
         }
@@ -96,7 +105,7 @@ class Menu : Fragment() {
 
         // Boton para Reportar Incidentes
         botonReportarIncidente.setOnClickListener {
-            val fragment = ReporteB()
+            val fragment = ReporteA()
             val transaccionFragmento = parentFragmentManager.beginTransaction()
             transaccionFragmento.replace(R.id.fragContViewInicio, fragment)
             transaccionFragmento.addToBackStack(null)
