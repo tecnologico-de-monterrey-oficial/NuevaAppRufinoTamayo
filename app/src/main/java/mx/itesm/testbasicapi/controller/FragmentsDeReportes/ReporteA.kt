@@ -64,7 +64,7 @@ class ReporteA : Fragment() {
 
             //Toast.makeText(requireActivity(), lista, Toast.LENGTH_LONG).show()
 
-            val fragmentListaReportes = ReporteB()
+            val fragmentListaReportes = ReporteC()
 
 
             val transaccionFragmento = parentFragmentManager.beginTransaction()
