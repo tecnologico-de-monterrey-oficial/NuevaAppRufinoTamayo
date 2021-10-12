@@ -1,23 +1,18 @@
 package mx.itesm.testbasicapi.controller.activities
 
-import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.AttributeSet
-import android.view.View
 
 import mx.itesm.testbasicapi.R
 import mx.itesm.testbasicapi.controller.FragmentsDeReportes.Communicator
-import mx.itesm.testbasicapi.controller.FragmentsDeReportes.ReporteA
 import mx.itesm.testbasicapi.controller.FragmentsDeReportes.ReporteB
-import mx.itesm.testbasicapi.controller.FragmentsDeReportes.ReporteC
 import mx.itesm.testbasicapi.controller.FragmentsDeReportes.ReporteD
 
 class Inicio : AppCompatActivity(), Communicator {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_inicio)
-        val fragmentA = ReporteA()
+        val fragmentA = ReporteB()
 
         supportFragmentManager.beginTransaction().replace(R.id.fragContViewInicio, fragmentA)
     }
@@ -27,7 +22,7 @@ class Inicio : AppCompatActivity(), Communicator {
         bundle.putString("message", "ASD")
 
         val transaction = this.supportFragmentManager.beginTransaction()
-        val reporteC = ReporteC()
+        val reporteC = ReporteD()
 
         reporteC.arguments = bundle
 

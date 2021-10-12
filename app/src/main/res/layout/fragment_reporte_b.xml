@@ -7,52 +7,102 @@
     tools:context=".controller.FragmentsDeReportes.ReporteB">
 
     <TextView
-        android:id="@+id/texto1p2TXT"
-        android:layout_width="357dp"
-        android:layout_height="67dp"
+        android:id="@+id/tituloTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:fontFamily="@font/lato_bold"
-        android:text="¿Te gustaria iniciar sesion con una cuenta antes de enviar el reporte?"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/texto2p2TXT"
+        android:text="Reportar Incidente"
+        android:textSize="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <TextView
-        android:id="@+id/texto2p2TXT"
-        android:layout_width="354dp"
-        android:layout_height="158dp"
-        android:fontFamily="@font/lato"
-        android:text="Actualmente estas elaborando el reporte de forma anonima, pero si inicias sesion con una cuenta para enviar el reporte podras obtener respuesta a el por parde de los administradores"
+        android:id="@+id/asuntoInputTXT"
+        android:layout_width="278dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:fontFamily="@font/lato_bold"
+        android:inputType="textPersonName"
+        android:text="Deseas mandar ubicacion GPS"
         android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/iniciarSesionDesdeReporteVisitanteBTN"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/texto1p2TXT" />
+        app:layout_constraintTop_toBottomOf="@+id/tituloTxt" />
 
-    <Button
-        android:id="@+id/iniciarSesionDesdeReporteVisitanteBTN"
+
+    <Switch
+        android:id="@+id/GPSSwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/lato_bold"
-        android:text="Iniciar sesion con una cuenta nueva o existente"
-        app:layout_constraintBottom_toTopOf="@+id/continuarConElReporteVisitanteBTN"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/texto2p2TXT" />
 
-    <Button
-        android:id="@+id/continuarConElReporteVisitanteBTN"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="48dp"
+        android:text=""
+        app:layout_constraintStart_toEndOf="@+id/tv_lat"
+        app:layout_constraintTop_toBottomOf="@+id/asuntoInputTXT" />
+
+    <TextView
+        android:id="@+id/tv_lat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="coords"
+        app:layout_constraintTop_toBottomOf="@+id/asuntoInputTXT"
+        tools:layout_editor_absoluteX="184dp" />
+
+    <TextView
+        android:id="@+id/tv_lon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="72dp"
+        android:text="coords"
+        app:layout_constraintEnd_toStartOf="@+id/tv_lat"
+        app:layout_constraintTop_toBottomOf="@+id/asuntoInputTXT" />
+
+    <EditText
+        android:id="@+id/descripcionReporteInputTXT"
+        android:layout_width="0dp"
+        android:layout_height="242dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="48dp"
+        android:ems="10"
         android:fontFamily="@font/lato_bold"
-        android:text="Continuar con el reporte sin iniciar sesion con una cuenta"
+        android:inputType="textPersonName"
+        android:text="Descripcion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/esUrgenteTXT" />
+
+    <TextView
+        android:id="@+id/esUrgenteTXT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:fontFamily="@font/lato_bold"
+        android:text="Deseas subir imagenes?"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_lon" />
+
+    <Button
+        android:id="@+id/botonSiguiente"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:text="Siguiente"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iniciarSesionDesdeReporteVisitanteBTN" />
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

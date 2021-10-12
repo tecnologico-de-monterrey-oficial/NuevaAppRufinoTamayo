@@ -9,10 +9,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import kotlinx.android.synthetic.main.fragment_menu.*
 import mx.itesm.testbasicapi.R
 import mx.itesm.testbasicapi.Utils
-import mx.itesm.testbasicapi.controller.FragmentsDeAdmin.Administracion
 import mx.itesm.testbasicapi.controller.FragmentsDeReportes.ReporteB
 import mx.itesm.testbasicapi.controller.activities.Autenticacion
 import mx.itesm.testbasicapi.model.Usuario

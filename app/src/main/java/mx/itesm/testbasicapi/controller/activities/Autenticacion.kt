@@ -5,8 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import mx.itesm.testbasicapi.R
 import mx.itesm.testbasicapi.Utils
-import mx.itesm.testbasicapi.controller.FragmentsDeReportes.Communicator
-import mx.itesm.testbasicapi.controller.FragmentsDeReportes.ReporteD
 
 class Autenticacion : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
