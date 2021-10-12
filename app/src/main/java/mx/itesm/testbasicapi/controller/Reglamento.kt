@@ -25,7 +25,7 @@ class Reglamento : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         //boton de regresar
-        botonRegresar = view.findViewById(R.id.botonRegresardeReglamento)
+        botonRegresar = view.findViewById(R.id.botonRegresarReglamento)
         botonRegresar.setOnClickListener {
             val fragmentListaReportes = Menu()
             val transaccionFragmento = parentFragmentManager.beginTransaction()

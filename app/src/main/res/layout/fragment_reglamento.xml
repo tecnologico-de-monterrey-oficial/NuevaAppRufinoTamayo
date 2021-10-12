@@ -7,16 +7,8 @@
     android:background="@color/fondo"
     tools:context=".controller.Reglamento">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="101dp"
-        android:layout_height="29dp"
-        android:text="Reglamento"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <Button
-        android:id="@+id/botonRegresardeReglamento"
+        android:id="@+id/botonRegresarReglamento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -26,18 +18,111 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textoReglamento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Horario 6:00 am a 10:00 pm
-Estacionamiento exclusivo para usuarios.
-Deposita la basura en su lugar.
-Cuida la flora y  fauna del parque."
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Reglamento"
+        android:textSize="28sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textoReglamentoDescripcion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Para garantizar una sana convivencia, atiende siempre las indicaciones del personal del Parque Ruﬁno Tamayo y del municipio de San Pedro Garza García. Queremos que tu experiencia sea divertida y emocionante, por ello tenemos algunas restricciones."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textoReglamento" />
+
+    <TextView
+        android:id="@+id/textoReglamentoGeneral"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:text="Horario 6:00 am a 10:00 pm Estacionamiento exclusivo para usuarios. Deposita la basura en su lugar. Cuida la flora y  fauna del parque."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textoReglamentoDescripcion" />
+
+    <TextView
+        android:id="@+id/textoReglamentoSeProhibe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Se prohibe"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textoReglamentoGeneral" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:text="Fumar cualquier tipo de cigarillo o dispositivo Introducir y/o consumir bebidas alcohólicas Introducir envases u objetos de vidrio Hacer fogatas y/o utilizar velas Volar drones Introducir globos, polvos de color, pirotecnia, espuma, confeti, piñatas o cualquier material que pueda poner en peligro la fauna Introducir vehículos motorizados de juguete o profesionales Ingresar a los jardines en bicicleta"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textoReglamentoSeProhibe" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mascotas"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        tools:text="Cada adulto puede ingresar máximo 2 perros Tu mascota debe portar placa de identificación Mantén siempre sujeto a tu perro con correa El único lugar donde tu perro puede estar sin correa es en el Parque Canino bajo tu supervisión Recoge las heces de tu mascota" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:text="Si tu mascota agrede a una persona o a otra mascota, deberás presentar cartilla de vacunación y cubrir gastos médicos del afectado. Si tu mascota daña las instalaciones del parque deberás pagar las reparaciones de los daños."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bicicletas"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Permanece en el circuito destinado para bicicletas La explanada es solo para uso de niños pequeños Circula en dirección de las manecillas del reloj Respeta a los peatones, transita a baja velocidad Desmonta tu bicicleta antes de cruzas los puentes Prohibido ingresar a los jardines"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
