@@ -12,19 +12,19 @@
         android:id="@+id/textoIniciarSesion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:text="Iniciar Sesión"
         android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imagenRufinoTamayoIniciarSesion" />
 
     <EditText
         android:id="@+id/escribirCorreo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:ems="10"
         android:hint="Correo Electrónico"
         android:inputType="textEmailAddress"
@@ -47,41 +47,19 @@
         app:layout_constraintTop_toBottomOf="@+id/escribirCorreo" />
 
     <TextView
-        android:id="@+id/textoOlvideContrasenia"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Olvidé mi contraseña"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/escribirContrasenia" />
-
-    <TextView
-        android:id="@+id/textoNoTienesCuenta"
+        android:id="@+id/textoError"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        android:text="¿No tienes una cuenta? Presiona aquí para crear una nueva"
-        android:textAlignment="center"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textoOlvideContrasenia" />
-
-    <TextView
-        android:id="@+id/textoError"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="48dp"
         android:text="(Error)"
+        android:textAlignment="center"
+        android:textColor="@color/rojo1"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textoNoTienesCuenta" />
+        app:layout_constraintTop_toBottomOf="@+id/botonNoTengoCuenta" />
 
     <Button
         android:id="@+id/botonIniciarSesion"
@@ -106,4 +84,34 @@
         app:layout_constraintBottom_toTopOf="@+id/botonIniciarSesion"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/botonOlvideMiContrasenia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Olvidé mi Contraseña"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/escribirContrasenia" />
+
+    <Button
+        android:id="@+id/botonNoTengoCuenta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="No Tengo Cuenta"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/botonOlvideMiContrasenia" />
+
+    <ImageView
+        android:id="@+id/imagenRufinoTamayoIniciarSesion"
+        android:layout_width="300dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/logodecolores"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

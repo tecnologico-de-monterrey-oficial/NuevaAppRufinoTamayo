@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/fondo"
-    tools:context=".controller.Visitante">
+    tools:context=".controller.Menu">
 
     <ImageView
         android:id="@+id/imagenRufinoTamayo"
@@ -24,12 +24,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="48dp"
         android:text="Reportar Incidente"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textoBienvenida" />
+        app:layout_constraintTop_toBottomOf="@+id/botonIniciarSesionMenu" />
 
     <Button
         android:id="@+id/botonPantallaMisReportes"
@@ -63,7 +63,7 @@
         android:text="Cerrar Sesión"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/botonAdministracion" />
+        app:layout_constraintTop_toBottomOf="@+id/botonConfiguracion" />
 
     <Button
         android:id="@+id/botonAdministracion"
@@ -99,4 +99,28 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imagenRufinoTamayo" />
+
+    <Button
+        android:id="@+id/botonConfiguracion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="48dp"
+        android:text="Configuración"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/botonAdministracion" />
+
+    <Button
+        android:id="@+id/botonIniciarSesionMenu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="48dp"
+        android:text="Iniciar Sesión"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textoBienvenida" />
 </androidx.constraintlayout.widget.ConstraintLayout>

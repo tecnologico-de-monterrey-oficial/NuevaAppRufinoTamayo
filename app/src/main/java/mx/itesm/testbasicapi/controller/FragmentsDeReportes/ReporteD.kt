@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import mx.itesm.testbasicapi.R
-import mx.itesm.testbasicapi.controller.Visitante
+import mx.itesm.testbasicapi.controller.Menu
 
 class ReporteD : Fragment() {
     lateinit var botonFinalizar: Button
@@ -27,7 +27,7 @@ class ReporteD : Fragment() {
         //boton de regresar
         botonFinalizar = view.findViewById(R.id.botonFinalizar)
         botonFinalizar.setOnClickListener {
-            val fragmentListaReportes = Visitante()
+            val fragmentListaReportes = Menu()
             val transaccionFragmento = parentFragmentManager.beginTransaction()
             transaccionFragmento.replace(R.id.fragContViewInicio, fragmentListaReportes)
             transaccionFragmento.addToBackStack(null)

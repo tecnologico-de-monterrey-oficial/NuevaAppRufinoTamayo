@@ -53,6 +53,8 @@ class CrearCuenta : Fragment() {
         textoMensajeError = view.findViewById(R.id.textoNuevoError)
         botonCrearCuenta = view.findViewById(R.id.botonNuevoCrearCuenta)
 
+        textoMensajeError.setVisibility(View.GONE)
+
         // Asignar los métodos a las referencias
         botonCrearCuenta.setOnClickListener(crearCuenta(view))
     }
@@ -77,7 +79,7 @@ class CrearCuenta : Fragment() {
                     RespuestaCrearCuenta {
                     override fun enExito() {
                         Log.d("CrearCuenta", "Exito")
-                        pudoCrearCuenta = true
+                        //pudoCrearCuenta = true
 
                         // Si pudo crear la cuenta, intenta inciar sesion
                         Log.d("IniciarSesion", "Afuera")
@@ -86,6 +88,7 @@ class CrearCuenta : Fragment() {
                                 Log.d("IniciarSesion", "EnExito")
                                 if(outputIniciarSesion != null) {
                                     Log.d("IniciarSesion", "Token")
+                                    textoMensajeError.setVisibility(View.VISIBLE)
                                     textoMensajeError.text = outputIniciarSesion.token
 
                                     Utils.saveToken(JwtToken(outputIniciarSesion.token), view.context)
@@ -98,15 +101,18 @@ class CrearCuenta : Fragment() {
                                     startActivity(intentInicio)
                                 } else {
                                     Log.d("IniciarSesion", "Mal")
+                                    textoMensajeError.setVisibility(View.VISIBLE)
                                     textoMensajeError.text = "Algo salió mal"
                                 }
                             }
 
                             override fun enErrorServidor(codigo: Int, mensaje: String) {
+                                textoMensajeError.setVisibility(View.VISIBLE)
                                 textoMensajeError.text = mensaje
                             }
 
                             override fun enOtroError(t: Throwable) {
+                                textoMensajeError.setVisibility(View.VISIBLE)
                                 textoMensajeError.text = "Algo salió mal"
                                 Log.e("API", t.message, t)
                             }
@@ -116,16 +122,19 @@ class CrearCuenta : Fragment() {
 
                     override fun enErrorServidor(codigo: Int, mensaje: String) {
                         Log.d("CrearCuenta", "ErrorServidor")
+                        textoMensajeError.setVisibility(View.VISIBLE)
                         textoMensajeError.text = mensaje
                     }
 
                     override fun enOtroError(t: Throwable) {
                         Log.d("CrearCuenta", "OtroError")
+                        textoMensajeError.setVisibility(View.VISIBLE)
                         textoMensajeError.text = "Algo salió mal"
                         Log.e("API", t.message, t)
                     }
                 })
             } else {
+                textoMensajeError.setVisibility(View.VISIBLE)
                 textoMensajeError.text = "Alguno de los campos están vacíos o las contraseñas no coninciden"
             }
         }

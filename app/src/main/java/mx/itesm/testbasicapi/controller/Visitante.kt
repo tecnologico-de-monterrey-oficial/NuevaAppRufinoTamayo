@@ -32,7 +32,7 @@ class Visitante : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_visitante, container, false)
+        return inflater.inflate(R.layout.fragment_menu, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -60,7 +60,7 @@ class Visitante : Fragment() {
 
         //boton de mis reportes
         botonMisReportes.setOnClickListener {
-            val fragment = ReportesVisitante()
+            val fragment = ReporteA()
             val transaccionFragmento = parentFragmentManager.beginTransaction()
             transaccionFragmento.replace(R.id.fragContViewInicio, fragment)
             transaccionFragmento.addToBackStack(null)

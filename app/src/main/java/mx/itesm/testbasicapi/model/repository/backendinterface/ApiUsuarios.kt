@@ -14,7 +14,7 @@ interface ApiUsuarios {
     @POST("api/user/login")
     fun iniciarSesion(@Body inputIniciarSesion: InputIniciarSesion): Call<OutputIniciarSesion>
 
-    @GET("api/user/get_user")
+    @PUT("api/user/get_user")
     fun obtenerUsuario(@Body inputObtenerUsuario: InputObtenerUsuario): Call<OutputObtenerUsuario>
 
     @PATCH("api/user/reset_password")
