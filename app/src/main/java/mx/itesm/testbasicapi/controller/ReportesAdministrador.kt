@@ -14,6 +14,6 @@ class ReportesAdministrador : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_reportes_administrador, container, false)
+        return inflater.inflate(R.layout.fragment_reporte_individual_administrador, container, false)
     }
 }
