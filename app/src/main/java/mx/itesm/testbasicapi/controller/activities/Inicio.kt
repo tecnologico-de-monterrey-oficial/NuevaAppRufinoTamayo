@@ -22,7 +22,7 @@ class Inicio : AppCompatActivity(), Communicator {
         bundle.putString("message", editTextInput)
 
         val transaction = this.supportFragmentManager.beginTransaction()
-        val reporteC = ReporteD()
+        val reporteC = ReporteB()
 
         reporteC.arguments = bundle
 
