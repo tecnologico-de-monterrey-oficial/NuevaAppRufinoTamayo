@@ -10,7 +10,7 @@ import android.widget.Button
 import mx.itesm.testbasicapi.R
 import mx.itesm.testbasicapi.Utils
 import mx.itesm.testbasicapi.controller.FragmentsDeAdmin.ReporteIndividualAdministrador
-import mx.itesm.testbasicapi.controller.FragmentsDeReportes.ReporteB
+import mx.itesm.testbasicapi.controller.FragmentsDeReportes.ReporteC
 import mx.itesm.testbasicapi.controller.activities.Autenticacion
 
 class Visitante : Fragment() {
@@ -49,7 +49,7 @@ class Visitante : Fragment() {
 
         //Boton de reportar incidentes
         botonReportarIncidente.setOnClickListener {
-            val fragment = ReporteB()
+            val fragment = ReporteC()
             val transaccionFragmento = parentFragmentManager.beginTransaction()
             transaccionFragmento.replace(R.id.fragContViewInicio, fragment)
             transaccionFragmento.addToBackStack(null)
@@ -58,7 +58,7 @@ class Visitante : Fragment() {
 
         //boton de mis reportes
         botonMisReportes.setOnClickListener {
-            val fragment = ReporteB()
+            val fragment = ReporteC()
             val transaccionFragmento = parentFragmentManager.beginTransaction()
             transaccionFragmento.replace(R.id.fragContViewInicio, fragment)
             transaccionFragmento.addToBackStack(null)

@@ -11,6 +11,7 @@ import mx.itesm.testbasicapi.R
 
 
 class ReporteA : Fragment() {
+    // Formulario 1
     lateinit var botonSeguirSinCuentaa: Button
     lateinit var botonSeguirConCuenta: Button
     lateinit var botonSiguiente: Button

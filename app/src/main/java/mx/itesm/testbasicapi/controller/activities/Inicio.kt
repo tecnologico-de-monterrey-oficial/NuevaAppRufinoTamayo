@@ -5,14 +5,14 @@ import android.os.Bundle
 
 import mx.itesm.testbasicapi.R
 import mx.itesm.testbasicapi.controller.FragmentsDeReportes.Communicator
-import mx.itesm.testbasicapi.controller.FragmentsDeReportes.ReporteB
+import mx.itesm.testbasicapi.controller.FragmentsDeReportes.ReporteC
 import mx.itesm.testbasicapi.controller.FragmentsDeReportes.ReporteD
 
 class Inicio : AppCompatActivity(), Communicator {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_inicio)
-        val fragmentA = ReporteB()
+        val fragmentA = ReporteC()
 
         supportFragmentManager.beginTransaction().replace(R.id.fragContViewInicio, fragmentA)
     }
