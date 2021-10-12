@@ -2,35 +2,26 @@ package mx.itesm.testbasicapi.controller.FragmentsDeReportes
 
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import mx.itesm.testbasicapi.R
 import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationCallback
-import com.google.android.gms.location.LocationRequest.PRIORITY_HIGH_ACCURACY
-import com.google.android.gms.location.LocationResult
 import com.google.android.gms.location.LocationServices
-import java.util.*
-import androidx.core.location.LocationManagerCompat.getCurrentLocation
-import kotlinx.android.synthetic.main.fragment_reporte_c.view.*
-import kotlinx.android.synthetic.main.fragment_reporte_d.*
+import kotlinx.android.synthetic.main.fragment_reporte_b.view.*
+import mx.itesm.testbasicapi.R
 import mx.itesm.testbasicapi.Utils
 import mx.itesm.testbasicapi.controller.FragmentsDeAdmin.ReporteIndividualAdministrador
-import mx.itesm.testbasicapi.model.Reporte
 import mx.itesm.testbasicapi.model.Usuario
 import mx.itesm.testbasicapi.model.repository.responseinterface.RespuestaCrearCuenta
-import mx.itesm.testbasicapi.model.repository.responseinterface.RespuestaCrearReporte
+import java.util.ArrayList
 
 
 class ReporteB : Fragment() {
-    // Formulario 2
-
     lateinit var GPSSwitch: Switch
 
     lateinit var tvLatitude: TextView
@@ -52,14 +43,16 @@ class ReporteB : Fragment() {
     var urgente =""
     var descripcion =""
 
+    lateinit var GPSSwitch: Switch
 
 
+    private val lista = ArrayList<String>(7)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        val view = inflater.inflate(R.layout.fragment_reporte_b, container, false)
         displayMessage = arguments?.getString("message")
         val aux = displayMessage.toString()
         val list= listOf(*aux.split(",").toTypedArray())
@@ -68,8 +61,13 @@ class ReporteB : Fragment() {
         descripcion = list.elementAt(2)
         tipo = list.elementAt(3)
 
-        return inflater.inflate(R.layout.fragment_reporte_d, container, false)
+
+
+        return view
+
+
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -118,7 +116,7 @@ class ReporteB : Fragment() {
             Toast.makeText(requireActivity(), asunto, Toast.LENGTH_SHORT).show()
             //Log.d("token", Utils.getToken(view.context))
 
-            val fragment = ReporteIndividualAdministrador()
+            val fragment = ReporteC()
             val transaccionFragmento = parentFragmentManager.beginTransaction()
             transaccionFragmento.replace(R.id.fragContViewInicio, fragment)
             transaccionFragmento.addToBackStack(null)
