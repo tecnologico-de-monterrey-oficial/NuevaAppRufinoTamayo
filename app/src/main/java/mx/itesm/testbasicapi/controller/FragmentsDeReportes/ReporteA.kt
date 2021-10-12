@@ -13,10 +13,11 @@ import mx.itesm.testbasicapi.R
 class ReporteA : Fragment() {
     lateinit var botonSiguiente: Button
 
-
-
     private lateinit var communicator: Communicator
     private val list = ArrayList<String>(7)
+
+    var spinnerVar ="No Selecciono"
+    var dato2 = false
 
 
     override fun onCreateView(
@@ -32,6 +33,7 @@ class ReporteA : Fragment() {
         val descripcion = view.findViewById<EditText>(R.id.descripcionReporteInputTXT)
 
         val spinner = view.findViewById<Spinner>(R.id.spinnerIncidentes)
+        val switch = view.findViewById<Switch>(R.id.esUrgenteInputSWITCH)
 
         val lista = resources.getStringArray(R.array.Problematicas)
 
@@ -50,34 +52,66 @@ class ReporteA : Fragment() {
 
 
 
-            val dato1 = asunto.text.toString()
-            val dato2 = urgente.text.toString()
-            val dato3 = descripcion.text.toString()
+            val asuntolist = asunto.text.toString()
+            val descripcionlist = descripcion.text.toString()
+            val spinnerlist = spinnerVar
 
-            list.add(dato1)
-            list.add(dato2)
-            list.add(dato3)
+            list.add(asuntolist)
+
+            if(dato2){
+                list.add("1")
+            }else{
+                list.add("0")
+            }
+
+            list.add(descripcionlist)
+            list.add(spinnerlist)
 
             val lista  = list.joinToString(separator = ",")
+/*
+            val bundle = Bundle()
+            bundle.putString("message", lista)
 
-            communicator.passDataCom("lista")
+            val transaction = this.parentFragmentManager.beginTransaction()
+            val reporteC = ReporteC()
+
+            reporteC.arguments = bundle
+
+            transaction.replace(R.id.fragContViewInicio, reporteC)
+            transaction.addToBackStack(null)
+            transaction.commit()*/
+
+            communicator.passDataCom(lista)
 
             //Toast.makeText(requireActivity(), lista, Toast.LENGTH_LONG).show()
 
+/*
             val fragmentListaReportes = ReporteC()
 
 
             val transaccionFragmento = parentFragmentManager.beginTransaction()
             transaccionFragmento.replace(R.id.fragContViewInicio, fragmentListaReportes)
             transaccionFragmento.addToBackStack(null)
-            transaccionFragmento.commit()
+            transaccionFragmento.commit()*/
         }
+
+        //switch urgente
+        switch.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                dato2 = true
+            } else {
+                dato2 = false
+            }
+
+
+        })
 
 
 
         spinner.onItemSelectedListener = object:
             AdapterView.OnItemSelectedListener{
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                spinnerVar = lista[p2]
                 if(lista[p2] == "Otro"){
                     Toast.makeText(requireActivity(), "Especificalo en el recuadro de la descripcion", Toast.LENGTH_LONG).show()
                 }else{

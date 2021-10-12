@@ -25,6 +25,7 @@ import androidx.core.location.LocationManagerCompat.getCurrentLocation
 import android.widget.CompoundButton
 import kotlinx.android.synthetic.main.fragment_reporte_c.view.*
 import mx.itesm.testbasicapi.Utils
+import mx.itesm.testbasicapi.controller.FragmentsDeAdmin.ReporteIndividualAdministrador
 import mx.itesm.testbasicapi.model.Reporte
 import mx.itesm.testbasicapi.model.Usuario
 import mx.itesm.testbasicapi.model.repository.responseinterface.RespuestaCrearCuenta
@@ -38,14 +39,19 @@ class ReporteC : Fragment() {
     lateinit var tvLongitude: TextView
     lateinit var descripcionReporte : TextView
 
-    var auxiliar = ""
+    private val lista = ArrayList<String>(7)
 
+    var auxiliar = ""
     var displayMessage: String? = ""
 
     lateinit var fusedLocationProviderClient: FusedLocationProviderClient
 
     lateinit var botonSiguiente: Button
 
+    var asunto =""
+    var tipo =""
+    var urgente =""
+    var descripcion =""
 
 
 
@@ -58,17 +64,15 @@ class ReporteC : Fragment() {
         // Inflate the layout for this fragment
         displayMessage = arguments?.getString("message")
         val aux = displayMessage.toString()
-        val list: List<String> = listOf(*aux.split(",").toTypedArray())
-        auxiliar= displayMessage.toString()
-        //Toast.makeText(requireActivity(), displayMessage.toString(), Toast.LENGTH_SHORT).show()
+        val list= listOf(*aux.split(",").toTypedArray())
+        asunto=list.elementAt(0)
+        urgente = list.elementAt(1)
+        descripcion = list.elementAt(2)
+        tipo = list.elementAt(3)
 
         view.tv_lat.text = auxiliar
 
-
-
         return view
-
-
     }
 
 
@@ -99,24 +103,34 @@ class ReporteC : Fragment() {
         botonSiguiente = view.findViewById(R.id.botonSiguiente)
         botonSiguiente.setOnClickListener {
 
-            var asunto = "asunto prueba"
-            var tipo = "tipo prueba"
-            var urgente = true
-            var descripcion = "descripcion prueba"
-            var coords = "-0, 0"
+            var urgenteBool = false
             var foto = "foto prueba"
+            var coords = tvLatitude.text.toString().plus(" ").plus(tvLongitude.text.toString())
 
-            var nombre = "asdf"
-            var apellido = "asdf"
-            var correo = "asdf"
-            var contrasenia = "asdf"
-            var repetirContrasenia = "asdf"
-            var pudoCrearCuenta: Boolean = false
+            if(urgente == "1"){
+                urgenteBool = true
+            }
+            }
+            /*
+            asunto
+            urgenteBool
+            descripcion
+            tipo
+            foto
+            coords
+            */
 
-            Log.d("token", Utils.getToken(view.context))
+            Toast.makeText(requireActivity(), asunto, Toast.LENGTH_SHORT).show()
+            //Log.d("token", Utils.getToken(view.context))
 
-            Usuario(Utils.getToken(view.context)).crearCuenta(nombre, apellido, correo, contrasenia, repetirContrasenia, object:
-                RespuestaCrearCuenta {
+            val fragmentListaReportes = ReporteIndividualAdministrador()
+            val transaccionFragmento = parentFragmentManager.beginTransaction()
+            transaccionFragmento.replace(R.id.fragContViewInicio, fragmentListaReportes)
+            transaccionFragmento.addToBackStack(null)
+            transaccionFragmento.commit()
+/*
+            Reporte(Utils.getToken(view.context)).crearReporte(Utils.getToken(view.context), asunto, tipo, descripcion, urgente,foto, coords,  object:
+                RespuestaCrearReporte {
 
                 override fun enExito() {/*
                     Toast.makeText(requireActivity(), "Se envio correctamente", Toast.LENGTH_SHORT).show()
@@ -137,7 +151,7 @@ class ReporteC : Fragment() {
                     Toast.makeText(requireActivity(), "Algo salio mal, vuelte a intentarlo mas tarde", Toast.LENGTH_SHORT).show()*/
 
                 }
-            })
+            })*/
 
 
 
