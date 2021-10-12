@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.Toast
 import mx.itesm.testbasicapi.R
 import mx.itesm.testbasicapi.Utils
+import mx.itesm.testbasicapi.controller.FragmentsDeAdmin.ReporteIndividualAdministrador
 import mx.itesm.testbasicapi.controller.FragmentsDeReportes.ReporteA
 import mx.itesm.testbasicapi.controller.FragmentsDeReportes.ReporteB
 import mx.itesm.testbasicapi.controller.activities.Autenticacion
@@ -68,7 +69,7 @@ class Visitante : Fragment() {
 
         //boton de reglamento
         botonReglamentoParque.setOnClickListener {
-            val fragment = Reglamento()
+            val fragment = ReporteIndividualAdministrador() //TODO cambiar a Reglamento()
             val transaccionFragmento = parentFragmentManager.beginTransaction()
             transaccionFragmento.replace(R.id.fragContViewInicio, fragment)
             transaccionFragmento.addToBackStack(null)

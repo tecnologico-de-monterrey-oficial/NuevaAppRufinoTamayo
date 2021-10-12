@@ -1,4 +1,4 @@
-package mx.itesm.testbasicapi.controller
+package mx.itesm.testbasicapi.controller.FragmentsDeAdmin
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,12 +8,15 @@ import android.view.ViewGroup
 import android.widget.Button
 import kotlinx.android.synthetic.main.fragment_reporte_individual_administrador.view.*
 import mx.itesm.testbasicapi.R
-import mx.itesm.testbasicapi.controller.FragmentsDeReportes.ReporteC
+import mx.itesm.testbasicapi.controller.FragmentsDeAdmin.ReportesAdministrador
+import mx.itesm.testbasicapi.controller.FragmentsDeAdmin.RespuestaAdministrador
 
 
 class ReporteIndividualAdministrador : Fragment() {
     lateinit var botonResponder: Button
     lateinit var botonRegresar: Button
+    lateinit var botonMapa: Button
+
 
 
 
@@ -54,6 +57,16 @@ class ReporteIndividualAdministrador : Fragment() {
         botonRegresar = view.findViewById(R.id.regresarDeRespuesta)
         botonRegresar.setOnClickListener {
             val fragmentListaReportes = ReportesAdministrador()
+            val transaccionFragmento = parentFragmentManager.beginTransaction()
+            transaccionFragmento.replace(R.id.fragContViewInicio, fragmentListaReportes)
+            transaccionFragmento.addToBackStack(null)
+            transaccionFragmento.commit()
+        }
+
+        //boton de mapa
+        botonMapa = view.findViewById(R.id.buttonMapa)
+        botonMapa.setOnClickListener {
+            val fragmentListaReportes = MapsFragment()
             val transaccionFragmento = parentFragmentManager.beginTransaction()
             transaccionFragmento.replace(R.id.fragContViewInicio, fragmentListaReportes)
             transaccionFragmento.addToBackStack(null)

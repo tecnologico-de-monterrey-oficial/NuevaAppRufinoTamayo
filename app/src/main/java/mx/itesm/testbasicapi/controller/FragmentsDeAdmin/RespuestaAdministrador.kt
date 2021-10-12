@@ -1,4 +1,4 @@
-package mx.itesm.testbasicapi.controller
+package mx.itesm.testbasicapi.controller.FragmentsDeAdmin
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,8 +8,6 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.CompoundButton
 import android.widget.Switch
-import com.google.android.gms.location.LocationServices
-import kotlinx.android.synthetic.main.fragment_respuesta_administrador.*
 import mx.itesm.testbasicapi.R
 
 class RespuestaAdministrador : Fragment() {

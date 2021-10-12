@@ -91,6 +91,9 @@ class ReporteC : Fragment() {
         botonSiguiente.setOnClickListener {
 
 
+
+
+
             //Toast.makeText(requireActivity(), auxiliar, Toast.LENGTH_SHORT).show()
 
 
