@@ -18,7 +18,6 @@ class InputIniciarSesion(
 ) {}
 
 class InputCambiarContrasenia(
-    var token: String,
     var password: String,
     var new_password: String,
     var repeated_new_password: String

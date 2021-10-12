@@ -83,7 +83,7 @@ class Usuario(private val token: String) {
 
     fun cambiarContrasenia(token: String, contrasenia: String, nuevaContrasenia: String, repetirNuevaContrasenia: String, callback: RespuestaCambiarContrasenia){
         val retrofit = RemoteRepository.getRetrofitInstance(token)
-        val inputCambiarContrasenia = InputCambiarContrasenia(token, contrasenia, nuevaContrasenia, repetirNuevaContrasenia)
+        val inputCambiarContrasenia = InputCambiarContrasenia(contrasenia, nuevaContrasenia, repetirNuevaContrasenia)
 
         val llamada = retrofit.create(ApiUsuarios::class.java).cambiarContrasenia(inputCambiarContrasenia)
 
