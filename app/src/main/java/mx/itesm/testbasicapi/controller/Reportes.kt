@@ -54,7 +54,7 @@ class Reportes : Fragment() {
 
         // Revisar si mostrar interfaz de visitante o administrador
         if(Utils.isUserLoggedIn(view.context)) {
-            Usuario(Utils.getToken(view.context)).obtenerUsuario(Utils.getToken(view.context), "cesar@gmail.com", object: RespuestaObtenerUsuario {
+            Usuario(Utils.getToken(view.context)).obtenerUsuario(Utils.getToken(view.context), object: RespuestaObtenerUsuario {
                 override fun enExito(outputObtenerUsuario: OutputObtenerUsuario?) {
                     if(outputObtenerUsuario != null) {
                         if(outputObtenerUsuario.is_admin) {

@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import kotlinx.android.synthetic.main.fragment_menu.*
 import mx.itesm.testbasicapi.R
 import mx.itesm.testbasicapi.Utils
@@ -59,11 +60,11 @@ class Menu : Fragment() {
 
         if(Utils.isUserLoggedIn(view.context)) {
             botonIniciarSesion.setVisibility(View.GONE)
-            Usuario(Utils.getToken(view.context)).obtenerUsuario(Utils.getToken(view.context), "cesar@rufino.com", object: RespuestaObtenerUsuario {
+            botonCerrarSesion.setVisibility(View.VISIBLE)
+            Usuario(Utils.getToken(view.context)).obtenerUsuario(Utils.getToken(view.context), object: RespuestaObtenerUsuario {
                 override fun enExito(outputObtenerUsuario: OutputObtenerUsuario?) {
                     if(outputObtenerUsuario != null) {
                         textoBienvenida.text = "Bienvenido " + outputObtenerUsuario.name + " " + outputObtenerUsuario.last_name + "!"
-                        botonCerrarSesion.setVisibility(View.VISIBLE)
 
                         if(outputObtenerUsuario.is_admin) {
                             botonReportarIncidente.setVisibility(View.GONE)
@@ -76,11 +77,11 @@ class Menu : Fragment() {
                 }
 
                 override fun enErrorServidor(codigo: Int, mensaje: String) {
-                    // Nada
+                    Toast.makeText(view.context, "No se pudo obtener tu usuario", Toast.LENGTH_LONG)
                 }
 
                 override fun enOtroError(t: Throwable) {
-                    // Nada
+                    Toast.makeText(view.context, "Algo salió mal, vuelte a intentarlo mas tarde", Toast.LENGTH_LONG)
                 }
             })
         }
@@ -131,7 +132,7 @@ class Menu : Fragment() {
 
         // Botón para ir a la sección de Administración
         botonAdministracion.setOnClickListener {
-            val fragment = Administracion()
+            val fragment = Menu()
             val transaccionFragmento = parentFragmentManager.beginTransaction()
             transaccionFragmento.replace(R.id.fragContViewInicio, fragment)
             transaccionFragmento.addToBackStack(null)

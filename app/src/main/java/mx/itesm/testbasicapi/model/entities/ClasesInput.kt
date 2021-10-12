@@ -18,8 +18,7 @@ class InputIniciarSesion(
 ) {}
 
 class InputObtenerUsuario(
-    var token: String,
-    var email: String
+    var token: String
 ) {}
 
 class InputCambiarContrasenia(

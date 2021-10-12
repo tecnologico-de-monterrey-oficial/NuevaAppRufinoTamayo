@@ -57,9 +57,9 @@ class Usuario(private val token: String) {
         })
     }
 
-    fun obtenerUsuario(token: String, correo: String, callback: RespuestaObtenerUsuario) {
+    fun obtenerUsuario(token: String, callback: RespuestaObtenerUsuario) {
         val retrofit = RemoteRepository.getRetrofitInstance(token)
-        val inputObtenerUsuario = InputObtenerUsuario(token, correo)
+        val inputObtenerUsuario = InputObtenerUsuario(token)
 
         val llamada = retrofit.create(ApiUsuarios::class.java).obtenerUsuario(inputObtenerUsuario)
 
