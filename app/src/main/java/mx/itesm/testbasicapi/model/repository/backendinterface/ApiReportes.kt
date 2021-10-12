@@ -9,6 +9,7 @@ import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.PUT
 
 interface ApiReportes {
     @POST("api/report/register_report")
@@ -17,8 +18,8 @@ interface ApiReportes {
     @GET("api/report/get_report")
     fun obtenerReporte(inputObtenerReporte: InputObtenerReporte): Call<OutputObtenerReporte>
 
-    @GET("api/report/get_summaries")
-    fun obtenerResumenesReportes(inputObtenerResumenesReportes: InputObtenerResumenesReportes): Call<List<OutputObtenerResumenesReportes>>
+    @PUT("api/report/get_summaries")
+    fun obtenerResumenesReportes(@Body inputObtenerResumenesReportes: InputObtenerResumenesReportes): Call<List<OutputObtenerResumenesReportes>>
 
     @POST("api/report/reply")
     fun responderReporte(inputResponderReporte: InputResponderReporte): Call<Void>

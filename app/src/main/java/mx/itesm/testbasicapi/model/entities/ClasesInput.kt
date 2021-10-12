@@ -17,10 +17,6 @@ class InputIniciarSesion(
     var password: String
 ) {}
 
-class InputObtenerUsuario(
-    var token: String
-) {}
-
 class InputCambiarContrasenia(
     var token: String,
     var password: String,
@@ -67,10 +63,9 @@ class InputObtenerReporte(
 ) {}
 
 class InputObtenerResumenesReportes(
-    var token: String,
     var user_id: String?,
-    var type_of_incident: String?,
-    var type_of_visitor: String?,
+    var incident_type: String?,
+    var visitor_type: String?,
     var status: String?,
     var antiquity: String?
 ) {}

@@ -1,5 +1,6 @@
 package mx.itesm.testbasicapi.model.repository.responseinterface
 
+import com.google.gson.annotations.SerializedName
 import mx.itesm.testbasicapi.model.entities.EUsuario
 import mx.itesm.testbasicapi.model.entities.JwtToken
 
@@ -27,7 +28,7 @@ class OutputObtenerUsuario(
     var user_id: String,
     var name: String,
     var last_name: String,
-    var is_admin: Boolean
+    var type: String
 ) {}
 
 interface RespuestaObtenerUsuario: IRespuestaBasica {
@@ -78,10 +79,11 @@ interface RespuestaObtenerReporte: IRespuestaBasica {
 }
 
 class OutputObtenerResumenesReportes(
-    var subject: String,
-    var type_of_incident: String,
-    var status: String,
-    var is_urgent: String
+    var report_id: String,
+    var title: String,
+    var incident_type: String,
+    var urgency_level: Boolean,
+    var status: String
 ) {}
 
 interface RespuestaObtenerResumenesReportes: IRespuestaBasica {

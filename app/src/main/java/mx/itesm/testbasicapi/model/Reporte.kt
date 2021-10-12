@@ -1,5 +1,6 @@
 package mx.itesm.testbasicapi.model
 
+import android.util.Log
 import mx.itesm.testbasicapi.model.entities.*
 import mx.itesm.testbasicapi.model.repository.RemoteRepository
 import mx.itesm.testbasicapi.model.repository.backendinterface.ApiReportes
@@ -59,14 +60,20 @@ class Reporte(private val token: String) {
 
     fun obtenerResumenesReportes(token: String, idUsuario: String?, tipoIncidente: String?, tipoVisitante: String?, estado: String?, antiguedad: String?, callback: RespuestaObtenerResumenesReportes){
         val retrofit = RemoteRepository.getRetrofitInstance(token)
-        val inputObtenerResumenesReportes = InputObtenerResumenesReportes(token, idUsuario, tipoIncidente, tipoVisitante, estado, antiguedad)
+        val inputObtenerResumenesReportes = InputObtenerResumenesReportes(idUsuario, tipoIncidente, tipoVisitante, estado, antiguedad)
+
+        Log.d("obtenerResumenesReportes", "Paso 1")
 
         val llamada = retrofit.create(ApiReportes::class.java).obtenerResumenesReportes(inputObtenerResumenesReportes)
 
+        Log.d("obtenerResumenesReportes", "Paso 2")
+
         llamada.enqueue(object : Callback<List<OutputObtenerResumenesReportes>?> {
             override fun onResponse(call: Call<List<OutputObtenerResumenesReportes>?>, response: Response<List<OutputObtenerResumenesReportes>?>) {
+                Log.d("obtenerResumenesReportes", "Paso 3")
                 if (response.isSuccessful) callback.enExito(response.body())
                 else {
+                    Log.d("obtenerResumenesReportes", "Paso 4")
                     val message: String = if (response.errorBody() != null)
                         response.errorBody()!!.string()
                     else
@@ -76,6 +83,7 @@ class Reporte(private val token: String) {
             }
 
             override fun onFailure(call: Call<List<OutputObtenerResumenesReportes>?>, t: Throwable) {
+                Log.d("obtenerResumenesReportes", "Paso 5")
                 callback.enOtroError(t)
             }
         })

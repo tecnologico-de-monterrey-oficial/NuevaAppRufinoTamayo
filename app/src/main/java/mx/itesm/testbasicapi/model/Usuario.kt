@@ -59,9 +59,9 @@ class Usuario(private val token: String) {
 
     fun obtenerUsuario(token: String, callback: RespuestaObtenerUsuario) {
         val retrofit = RemoteRepository.getRetrofitInstance(token)
-        val inputObtenerUsuario = InputObtenerUsuario(token)
+        // val inputObtenerUsuario = InputObtenerUsuario(token)
 
-        val llamada = retrofit.create(ApiUsuarios::class.java).obtenerUsuario(inputObtenerUsuario)
+        val llamada = retrofit.create(ApiUsuarios::class.java).obtenerUsuario()
 
         llamada.enqueue(object : Callback<OutputObtenerUsuario?> {
             override fun onResponse(call: Call<OutputObtenerUsuario?>, response: Response<OutputObtenerUsuario?>) {
