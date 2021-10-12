@@ -30,7 +30,7 @@ class ReporteB : Fragment() {
         //boton de seguir sin cuenta
         botonSeguirSinCuentaa = view.findViewById(R.id.continuarConElReporteVisitanteBTN)
         botonSeguirSinCuentaa.setOnClickListener {
-            val fragmentListaReportes = ReporteC()
+            val fragmentListaReportes = ReporteA()
             val transaccionFragmento = parentFragmentManager.beginTransaction()
             transaccionFragmento.replace(R.id.fragContViewInicio, fragmentListaReportes)
             transaccionFragmento.addToBackStack(null)
@@ -40,7 +40,7 @@ class ReporteB : Fragment() {
         //boton de seguir con cuenta
         botonSeguirConCuenta = view.findViewById(R.id.iniciarSesionDesdeReporteVisitanteBTN)
         botonSeguirConCuenta.setOnClickListener {
-            val fragmentListaReportes = ReporteC()  //TODO AQUI HAY QUE CHECAR LO DE LOGIN DESDE EL REPORTE
+            val fragmentListaReportes = ReporteA()  //TODO AQUI HAY QUE CHECAR LO DE LOGIN DESDE EL REPORTE
             val transaccionFragmento = parentFragmentManager.beginTransaction()
             transaccionFragmento.replace(R.id.fragContViewInicio, fragmentListaReportes)
             transaccionFragmento.addToBackStack(null)
