@@ -4,8 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/ProyectosAndroid/AppRufino/app/src/main/res/layout/activity_inicio.xml" value="0.13269424823410697" />
+        <entry key="..\:/ProyectosAndroid/AppRufino/app/src/main/res/layout/fragment_administracion.xml" value="0.13768115942028986" />
         <entry key="..\:/ProyectosAndroid/AppRufino/app/src/main/res/layout/fragment_lectura_reporte.xml" value="0.13269424823410697" />
+        <entry key="..\:/ProyectosAndroid/AppRufino/app/src/main/res/layout/fragment_reporte_individual_administrador.xml" value="0.13768115942028986" />
         <entry key="..\:/ProyectosAndroid/AppRufino/app/src/main/res/layout/fragment_reportes.xml" value="0.22" />
+        <entry key="..\:/ProyectosAndroid/AppRufino/app/src/main/res/layout/fragment_reportes_administrador.xml" value="0.13768115942028986" />
         <entry key="..\:/ProyectosAndroid/AppRufino/app/src/main/res/layout/resumen_reporte.xml" value="0.22" />
         <entry key="..\:/ProyectosAndroid/TestingProductsAPI/app/src/main/res/layout/activity_iniciar_sesion.xml" value="0.15489130434782608" />
         <entry key="..\:/ProyectosAndroid/TestingProductsAPI/app/src/main/res/layout/activity_inicio.xml" value="0.14666666666666667" />

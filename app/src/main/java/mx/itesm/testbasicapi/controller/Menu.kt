@@ -12,6 +12,8 @@ import android.widget.TextView
 import android.widget.Toast
 import mx.itesm.testbasicapi.R
 import mx.itesm.testbasicapi.Utils
+import mx.itesm.testbasicapi.controller.FragmentsDeAdmin.Administracion
+import mx.itesm.testbasicapi.controller.FragmentsDeReportes.ReporteA
 import mx.itesm.testbasicapi.controller.FragmentsDeReportes.ReporteB
 import mx.itesm.testbasicapi.controller.activities.Autenticacion
 import mx.itesm.testbasicapi.model.Usuario
@@ -103,7 +105,7 @@ class Menu : Fragment() {
 
         // Boton para Reportar Incidentes
         botonReportarIncidente.setOnClickListener {
-            val fragment = ReporteB()
+            val fragment = ReporteA()
             val transaccionFragmento = parentFragmentManager.beginTransaction()
             transaccionFragmento.replace(R.id.fragContViewInicio, fragment)
             transaccionFragmento.addToBackStack(null)
@@ -139,7 +141,7 @@ class Menu : Fragment() {
 
         // Botón para ir a la sección de Administración
         botonAdministracion.setOnClickListener {
-            val fragment = Menu()
+            val fragment = Administracion()
             val transaccionFragmento = parentFragmentManager.beginTransaction()
             transaccionFragmento.replace(R.id.fragContViewInicio, fragment)
             transaccionFragmento.addToBackStack(null)
