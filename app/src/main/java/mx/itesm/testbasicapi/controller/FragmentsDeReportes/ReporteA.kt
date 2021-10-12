@@ -6,12 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import kotlinx.android.synthetic.main.fragment_reporte_b.*
 import mx.itesm.testbasicapi.R
 
 
 class ReporteA : Fragment() {
     lateinit var botonSeguirSinCuentaa: Button
     lateinit var botonSeguirConCuenta: Button
+    lateinit var botonSiguiente: Button
 
     private lateinit var communicator: Communicator
     private val list = ArrayList<String>(7)
@@ -134,6 +136,8 @@ class ReporteA : Fragment() {
 
 
         }
+
+        return view
     }
 }
 

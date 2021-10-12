@@ -24,36 +24,36 @@
         android:id="@+id/asuntoInputTXT"
         android:layout_width="278dp"
         android:layout_height="27dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="44dp"
         android:ems="10"
         android:fontFamily="@font/lato_bold"
         android:inputType="textPersonName"
         android:text="Deseas mandar ubicacion GPS"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.27"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tituloTxt" />
-
 
     <Switch
         android:id="@+id/GPSSwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="44dp"
         android:text=""
-        app:layout_constraintStart_toEndOf="@+id/tv_lat"
-        app:layout_constraintTop_toBottomOf="@+id/asuntoInputTXT" />
+        app:layout_constraintStart_toEndOf="@+id/asuntoInputTXT"
+        app:layout_constraintTop_toBottomOf="@+id/tituloTxt" />
 
     <TextView
         android:id="@+id/tv_lat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="40dp"
         android:text="coords"
         app:layout_constraintTop_toBottomOf="@+id/asuntoInputTXT"
-        tools:layout_editor_absoluteX="184dp" />
+        tools:layout_editor_absoluteX="250dp" />
 
     <TextView
         android:id="@+id/tv_lon"
@@ -67,16 +67,17 @@
 
     <EditText
         android:id="@+id/descripcionReporteInputTXT"
-        android:layout_width="0dp"
-        android:layout_height="242dp"
+        android:layout_width="313dp"
+        android:layout_height="103dp"
         android:layout_marginStart="48dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="56dp"
         android:layout_marginEnd="48dp"
         android:ems="10"
         android:fontFamily="@font/lato_bold"
         android:inputType="textPersonName"
         android:text="Descripcion"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/esUrgenteTXT" />
 
@@ -102,7 +103,9 @@
         android:text="Siguiente"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descripcionReporteInputTXT"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

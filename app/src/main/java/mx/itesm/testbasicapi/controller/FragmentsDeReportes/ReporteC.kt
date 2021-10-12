@@ -1,11 +1,13 @@
 package mx.itesm.testbasicapi.controller.FragmentsDeReportes
 
+import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+import android.widget.*
 import mx.itesm.testbasicapi.R
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -15,10 +17,9 @@ import com.google.android.gms.location.LocationRequest.PRIORITY_HIGH_ACCURACY
 import com.google.android.gms.location.LocationResult
 import com.google.android.gms.location.LocationServices
 import java.util.*
-import android.widget.Toast
 import androidx.core.location.LocationManagerCompat.getCurrentLocation
-import android.widget.CompoundButton
 import kotlinx.android.synthetic.main.fragment_reporte_c.view.*
+import kotlinx.android.synthetic.main.fragment_reporte_d.*
 import mx.itesm.testbasicapi.Utils
 import mx.itesm.testbasicapi.controller.FragmentsDeAdmin.ReporteIndividualAdministrador
 import mx.itesm.testbasicapi.model.Reporte
@@ -28,6 +29,8 @@ import mx.itesm.testbasicapi.model.repository.responseinterface.RespuestaCrearRe
 
 
 class ReporteC : Fragment() {
+
+
     lateinit var GPSSwitch: Switch
 
     lateinit var tvLatitude: TextView
@@ -42,6 +45,7 @@ class ReporteC : Fragment() {
     lateinit var fusedLocationProviderClient: FusedLocationProviderClient
 
     lateinit var botonSiguiente: Button
+    lateinit var botonFinalizar: Button
 
     var asunto =""
     var tipo =""
@@ -98,10 +102,10 @@ class ReporteC : Fragment() {
             var foto = "foto prueba"
             var coords = tvLatitude.text.toString().plus(" ").plus(tvLongitude.text.toString())
 
-            if(urgente == "1"){
+            if (urgente == "1") {
                 urgenteBool = true
             }
-            }
+
             /*
             asunto
             urgenteBool
@@ -114,9 +118,9 @@ class ReporteC : Fragment() {
             Toast.makeText(requireActivity(), asunto, Toast.LENGTH_SHORT).show()
             //Log.d("token", Utils.getToken(view.context))
 
-            val fragmentListaReportes = ReporteIndividualAdministrador()
+            val fragment = ReporteIndividualAdministrador()
             val transaccionFragmento = parentFragmentManager.beginTransaction()
-            transaccionFragmento.replace(R.id.fragContViewInicio, fragmentListaReportes)
+            transaccionFragmento.replace(R.id.fragContViewInicio, fragment)
             transaccionFragmento.addToBackStack(null)
             transaccionFragmento.commit()
 /*
@@ -143,14 +147,8 @@ class ReporteC : Fragment() {
 
                 }
             })*/
+        }
 
-
-
-
-
-
-
-            //Toast.makeText(requireActivity(), auxiliar, Toast.LENGTH_SHORT).show()
 
 
 /*
@@ -158,13 +156,36 @@ class ReporteC : Fragment() {
         //boton de regresar
         botonFinalizar = view.findViewById(R.id.botonFinalizar)
         botonFinalizar.setOnClickListener {
-            val fragmentListaReportes = Menu()
+            val fragmentt = Menu()
             val transaccionFragmento = parentFragmentManager.beginTransaction()
-            transaccionFragmento.replace(R.id.fragContViewInicio, fragmentListaReportes)
+            transaccionFragmento.replace(R.id.fragContViewInicio, fragmentt)
             transaccionFragmento.addToBackStack(null)
             transaccionFragmento.commit()
-        }
+        }*/
     }
 
+    private fun sinGps() {
+        tvLatitude.setText("0")
+        tvLongitude.setText("0")
+        Toast.makeText(requireActivity(), "Si es necesario especifica la ubicacion en la descripcion", Toast.LENGTH_SHORT).show()
+        return
+    }
+    private fun checkLocationPermission() {
+        val task = fusedLocationProviderClient.lastLocation
+        if(ActivityCompat.checkSelfPermission(requireActivity(), android.Manifest.permission.ACCESS_FINE_LOCATION) !=
+            PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(requireActivity(), android.Manifest.permission.ACCESS_COARSE_LOCATION) !=
+            PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(requireActivity(), arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION), 101)
+        }
 
+        task.addOnSuccessListener {
+            //Toast.makeText(requireActivity(), "prueba", Toast.LENGTH_SHORT).show()
+            if(it != null){
+                tvLatitude.setText(it.getLatitude().toString())
+                tvLongitude.setText(it.getLongitude().toString())
+                Toast.makeText(requireActivity(), "${it.latitude} ${it.longitude}", Toast.LENGTH_SHORT).show()
+            }
+        }
+        return
+    }
 }
