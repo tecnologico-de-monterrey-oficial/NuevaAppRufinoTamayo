@@ -19,7 +19,7 @@ class Inicio : AppCompatActivity(), Communicator {
 
     override fun passDataCom(editTextInput: String) {
         val bundle = Bundle()
-        bundle.putString("message", "ASD")
+        bundle.putString("message", editTextInput)
 
         val transaction = this.supportFragmentManager.beginTransaction()
         val reporteC = ReporteD()
