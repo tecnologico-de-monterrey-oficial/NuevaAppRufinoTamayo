@@ -23,6 +23,8 @@ import mx.itesm.testbasicapi.model.repository.responseinterface.RespuestaCrearCu
 
 
 class ReporteD : Fragment() {
+    // Gracias
+
     lateinit var GPSSwitch: Switch
 
     lateinit var tvLatitude: TextView
