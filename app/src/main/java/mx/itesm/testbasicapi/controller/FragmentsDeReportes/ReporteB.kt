@@ -43,11 +43,6 @@ class ReporteB : Fragment() {
     var urgente =""
     var descripcion =""
 
-    lateinit var GPSSwitch: Switch
-
-
-    private val lista = ArrayList<String>(7)
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -187,3 +182,4 @@ class ReporteB : Fragment() {
         return
     }
 }
+

@@ -5,6 +5,7 @@ import android.os.Bundle
 
 import mx.itesm.testbasicapi.R
 import mx.itesm.testbasicapi.controller.FragmentsDeReportes.Communicator
+import mx.itesm.testbasicapi.controller.FragmentsDeReportes.ReporteB
 import mx.itesm.testbasicapi.controller.FragmentsDeReportes.ReporteC
 import mx.itesm.testbasicapi.controller.FragmentsDeReportes.ReporteD
 

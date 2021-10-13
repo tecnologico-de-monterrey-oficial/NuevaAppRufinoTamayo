@@ -19,21 +19,14 @@ class ReporteC : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-
-
-        return inflater.inflate(R.layout.fragment_reporte_c, container, false)
-    }
-
-        val view = inflater.inflate(R.layout.fragment_reporte_a, container, false)
-
-
+        val view = inflater.inflate(R.layout.fragment_reporte_c, container, false)
         //boton ir a iniciar cuenta
         botonIniciarConCuentaa = view.findViewById(R.id.iniciarSesionDesdeReporteVisitanteBTN)
         botonIniciarConCuentaa.setOnClickListener {
 
             val fragment = ReporteD()  //TODO AQUI VA AL FRAGMENT PARA QUE INICIE SESION
             val transaccionFragmento = parentFragmentManager.beginTransaction()
-            transaccionFragmento.replace(R.id.fragContViewInicio, fragmentListaReportes)
+            transaccionFragmento.replace(R.id.fragContViewInicio, fragment)
             transaccionFragmento.addToBackStack(null)
             transaccionFragmento.commit()
         }
@@ -49,6 +42,8 @@ class ReporteC : Fragment() {
             transaccionFragmento.commit()
         }
 
+
+        return view
     }
 
 
