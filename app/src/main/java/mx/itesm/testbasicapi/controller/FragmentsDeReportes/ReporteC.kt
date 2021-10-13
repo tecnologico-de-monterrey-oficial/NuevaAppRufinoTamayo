@@ -1,5 +1,6 @@
 package mx.itesm.testbasicapi.controller.FragmentsDeReportes
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import mx.itesm.testbasicapi.R
+import mx.itesm.testbasicapi.controller.activities.Autenticacion
+import mx.itesm.testbasicapi.controller.activities.Inicio
 
 
 class ReporteC : Fragment() {
@@ -23,19 +26,17 @@ class ReporteC : Fragment() {
         //boton ir a iniciar cuenta
         botonIniciarConCuentaa = view.findViewById(R.id.iniciarSesionDesdeReporteVisitanteBTN)
         botonIniciarConCuentaa.setOnClickListener {
-
-            val fragment = ReporteD()  //TODO AQUI VA AL FRAGMENT PARA QUE INICIE SESION
-            val transaccionFragmento = parentFragmentManager.beginTransaction()
-            transaccionFragmento.replace(R.id.fragContViewInicio, fragment)
-            transaccionFragmento.addToBackStack(null)
-            transaccionFragmento.commit()
+            val intentAutenticacion = Intent(view.context, Autenticacion::class.java)
+            intentAutenticacion.flags =
+                Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intentAutenticacion)
         }
 
         //boton seguir sin cuenta
         botonSeguirSinCuentaa = view.findViewById(R.id.continuarConElReporteVisitanteBTN)
         botonSeguirSinCuentaa.setOnClickListener {
 
-            val fragment = ReporteD()
+            val fragment = ReporteA()
             val transaccionFragmento = parentFragmentManager.beginTransaction()
             transaccionFragmento.replace(R.id.fragContViewInicio, fragment)
             transaccionFragmento.addToBackStack(null)

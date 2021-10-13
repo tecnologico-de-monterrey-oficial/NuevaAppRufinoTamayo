@@ -12,7 +12,7 @@ import retrofit2.Response
 class Reporte(private val token: String) {
     fun crearReporte(token: String, asunto: String, tipoIncidente: String, descripcion: String, esUrgente: Boolean, foto: String?, ubicacion: String?, callback: RespuestaCrearReporte){
         val retrofit = RemoteRepository.getRetrofitInstance(token)
-        val inputCrearReporte = InputCrearReporte(token, asunto, tipoIncidente, descripcion, esUrgente, foto, ubicacion)
+        val inputCrearReporte = InputCrearReporte(asunto, tipoIncidente, descripcion, esUrgente, foto, ubicacion)
 
         val llamada = retrofit.create(ApiReportes::class.java).crearReporte(inputCrearReporte)
 

@@ -13,7 +13,7 @@ import retrofit2.http.PUT
 
 interface ApiReportes {
     @POST("api/report/register_report")
-    fun crearReporte(inputCrearReporte: InputCrearReporte): Call<Void>
+    fun crearReporte(@Body inputCrearReporte: InputCrearReporte): Call<Void>
 
     @GET("api/report/get_report")
     fun obtenerReporte(inputObtenerReporte: InputObtenerReporte): Call<OutputObtenerReporte>

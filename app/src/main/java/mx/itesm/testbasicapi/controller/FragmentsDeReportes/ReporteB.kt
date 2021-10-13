@@ -2,22 +2,18 @@ package mx.itesm.testbasicapi.controller.FragmentsDeReportes
 
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
-import kotlinx.android.synthetic.main.fragment_reporte_b.view.*
 import mx.itesm.testbasicapi.R
 import mx.itesm.testbasicapi.Utils
-import mx.itesm.testbasicapi.controller.FragmentsDeAdmin.ReporteIndividualAdministrador
-import mx.itesm.testbasicapi.model.Usuario
-import mx.itesm.testbasicapi.model.repository.responseinterface.RespuestaCrearCuenta
+import mx.itesm.testbasicapi.model.Reporte
+import mx.itesm.testbasicapi.model.repository.responseinterface.RespuestaCrearReporte
 import java.util.ArrayList
 
 
@@ -111,35 +107,35 @@ class ReporteB : Fragment() {
             Toast.makeText(requireActivity(), asunto, Toast.LENGTH_SHORT).show()
             //Log.d("token", Utils.getToken(view.context))
 
-            val fragment = ReporteC()
+            /*val fragment = ReporteD()
             val transaccionFragmento = parentFragmentManager.beginTransaction()
             transaccionFragmento.replace(R.id.fragContViewInicio, fragment)
             transaccionFragmento.addToBackStack(null)
-            transaccionFragmento.commit()
-/*
-            Reporte(Utils.getToken(view.context)).crearReporte(Utils.getToken(view.context), asunto, tipo, descripcion, urgente,foto, coords,  object:
+            transaccionFragmento.commit()*/
+
+            Reporte(Utils.getToken(view.context)).crearReporte(Utils.getToken(view.context), asunto, tipo, descripcion, urgenteBool ,"", "", object:
                 RespuestaCrearReporte {
 
-                override fun enExito() {/*
+                override fun enExito() {
                     Toast.makeText(requireActivity(), "Se envio correctamente", Toast.LENGTH_SHORT).show()
                     val fragmentListaReportes = ReporteD()
                     val transaccionFragmento = parentFragmentManager.beginTransaction()
                     transaccionFragmento.replace(R.id.fragContViewInicio, fragmentListaReportes)
                     transaccionFragmento.addToBackStack(null)
-                    transaccionFragmento.commit()*/
+                    transaccionFragmento.commit()
                     //https://experiencia21.tec.mx/courses/182802/pages/mis-clases
                 }
 
-                override fun enErrorServidor(codigo: Int, mensaje: String) {/*
-                    Toast.makeText(requireActivity(), mensaje, Toast.LENGTH_SHORT).show()*/
+                override fun enErrorServidor(codigo: Int, mensaje: String) {
+                    Toast.makeText(requireActivity(), mensaje, Toast.LENGTH_SHORT).show()
 
                 }
 
-                override fun enOtroError(t: Throwable) {/*
-                    Toast.makeText(requireActivity(), "Algo salio mal, vuelte a intentarlo mas tarde", Toast.LENGTH_SHORT).show()*/
+                override fun enOtroError(t: Throwable) {
+                    Toast.makeText(requireActivity(), "Algo salio mal, vuelte a intentarlo mas tarde", Toast.LENGTH_SHORT).show()
 
                 }
-            })*/
+            })
         }
 
 

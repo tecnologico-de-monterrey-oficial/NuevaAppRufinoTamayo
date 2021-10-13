@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import mx.itesm.testbasicapi.R
 import mx.itesm.testbasicapi.Utils
+import mx.itesm.testbasicapi.controller.FragmentsDeReportes.Communicator
 import mx.itesm.testbasicapi.model.Reporte
 import mx.itesm.testbasicapi.model.Usuario
 import mx.itesm.testbasicapi.model.repository.responseinterface.OutputObtenerResumenesReportes
@@ -24,6 +25,8 @@ class Reportes : Fragment() {
     lateinit var textoReportes: TextView
     lateinit var textoPruebasReportes: TextView
     lateinit var botonSalirReportes: Button
+
+    private lateinit var communicator: Communicator2
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,10 +72,9 @@ class Reportes : Fragment() {
                                         val recyclerViewResumenesReportes = view.findViewById<RecyclerView>(R.id.recyclerViewResumenes)
                                         val adaptador = AdaptadorResumenesReportes(outputObtenerResumenesReportes, object: AdaptadorResumenesReportes.OnItemClickListener {
                                             override fun onItemClick(item: OutputObtenerResumenesReportes) {
+                                                communicator = activity as Communicator2
                                                 val fragmentoLecturaReporte = LecturaReporte()
-                                                val bundle = Bundle()
-                                                bundle.putString("idReporte", "123")
-                                                fragmentoLecturaReporte.arguments = bundle
+                                                communicator.passDataCom2("12345")
 
                                                 val fragmentTransaction = parentFragmentManager.beginTransaction()
                                                 fragmentTransaction.replace(

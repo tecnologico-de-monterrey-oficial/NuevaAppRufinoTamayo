@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.CompoundButton
 import android.widget.Switch
 import mx.itesm.testbasicapi.R
+import mx.itesm.testbasicapi.controller.LecturaReporte
 
 class RespuestaAdministrador : Fragment() {
     lateinit var botonResponder: Button
@@ -51,7 +52,7 @@ class RespuestaAdministrador : Fragment() {
 
 
 
-            val fragmentListaReportes = ReporteIndividualAdministrador()
+            val fragmentListaReportes = LecturaReporte()
             val transaccionFragmento = parentFragmentManager.beginTransaction()
             transaccionFragmento.replace(R.id.fragContViewInicio, fragmentListaReportes)
             transaccionFragmento.addToBackStack(null)
@@ -61,7 +62,7 @@ class RespuestaAdministrador : Fragment() {
         //boton de regresar
         botonRegresar = view.findViewById(R.id.regresarBTN)
         botonRegresar.setOnClickListener {
-            val fragmentListaReportes = ReporteIndividualAdministrador()
+            val fragmentListaReportes = LecturaReporte()
             val transaccionFragmento = parentFragmentManager.beginTransaction()
             transaccionFragmento.replace(R.id.fragContViewInicio, fragmentListaReportes)
             transaccionFragmento.addToBackStack(null)

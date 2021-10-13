@@ -47,11 +47,10 @@ class InputBloquearReportesAnonimos(
 // Reportes
 
 class InputCrearReporte(
-    var token: String?,
-    var subject: String,
-    var type_of_incident: String,
+    var title: String,
+    var incident_type: String,
     var description: String,
-    var is_urgent: Boolean,
+    var urgency_level: Boolean,
     var photo: String?,
     var location: String?
 ) {}
