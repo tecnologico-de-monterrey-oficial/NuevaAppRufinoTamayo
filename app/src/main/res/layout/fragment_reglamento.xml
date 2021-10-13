@@ -21,7 +21,7 @@
         android:id="@+id/textoReglamento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:text="Reglamento"
         android:textSize="28sp"
         android:textStyle="bold"
@@ -68,7 +68,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textoReglamentoGeneral" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/textoReglamentoSeProhibe0"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -81,64 +81,39 @@
         app:layout_constraintTop_toBottomOf="@+id/textoReglamentoSeProhibe" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/textoReglamentoMascotas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Mascotas"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+        app:layout_constraintTop_toBottomOf="@+id/textoReglamentoSeProhibe0" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/textoReglamentoMascotas0"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:text="TextView"
+        android:text="Cada adulto puede ingresar máximo 2 perros Tu mascota debe portar placa de identificación Mantén siempre sujeto a tu perro con correa El único lugar donde tu perro puede estar sin correa es en el Parque Canino bajo tu supervisión Recoge las heces de tu mascota"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"
-        tools:text="Cada adulto puede ingresar máximo 2 perros Tu mascota debe portar placa de identificación Mantén siempre sujeto a tu perro con correa El único lugar donde tu perro puede estar sin correa es en el Parque Canino bajo tu supervisión Recoge las heces de tu mascota" />
+        app:layout_constraintTop_toBottomOf="@+id/textoReglamentoMascotas" />
 
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:text="Si tu mascota agrede a una persona o a otra mascota, deberás presentar cartilla de vacunación y cubrir gastos médicos del afectado. Si tu mascota daña las instalaciones del parque deberás pagar las reparaciones de los daños."
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
-
-    <TextView
-        android:id="@+id/textView11"
+    <Button
+        android:id="@+id/botonSiguienteReglamento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Bicicletas"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
-
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:text="Permanece en el circuito destinado para bicicletas La explanada es solo para uso de niños pequeños Circula en dirección de las manecillas del reloj Respeta a los peatones, transita a baja velocidad Desmonta tu bicicleta antes de cruzas los puentes Prohibido ingresar a los jardines"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+        android:layout_marginBottom="16dp"
+        android:text="Siguiente"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

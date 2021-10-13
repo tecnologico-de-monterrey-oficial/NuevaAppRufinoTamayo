@@ -9,7 +9,7 @@
     tools:context=".controller.Configuracion">
 
     <EditText
-        android:id="@+id/escribirNuevoNombre4"
+        android:id="@+id/escribirNuevoNombreConfig"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textoConfiguracion" />
 
     <EditText
-        android:id="@+id/escribirNuevoApellido4"
+        android:id="@+id/escribirNuevoApellidoConfig"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -32,10 +32,10 @@
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/escribirNuevoNombre4" />
+        app:layout_constraintTop_toBottomOf="@+id/escribirNuevoNombreConfig" />
 
     <EditText
-        android:id="@+id/escribirNuevoCorreo4"
+        android:id="@+id/escribirNuevoCorreoConfig"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -45,10 +45,10 @@
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/escribirNuevoApellido4" />
+        app:layout_constraintTop_toBottomOf="@+id/escribirNuevoApellidoConfig" />
 
     <EditText
-        android:id="@+id/escribirNuevaContrasenia4"
+        android:id="@+id/escribirNuevaContraseniaConfig"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -62,7 +62,7 @@
         app:layout_constraintTop_toBottomOf="@+id/escribirContraseniaActual" />
 
     <EditText
-        android:id="@+id/escribirNuevoRepetirContrasenia4"
+        android:id="@+id/escribirNuevoRepetirContraseniaConfig"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -72,7 +72,7 @@
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/escribirNuevaContrasenia4" />
+        app:layout_constraintTop_toBottomOf="@+id/escribirNuevaContraseniaConfig" />
 
     <TextView
         android:id="@+id/textoConfiguracion"
@@ -94,7 +94,7 @@
         android:text="Actualizar Datos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/escribirNuevoCorreo4" />
+        app:layout_constraintTop_toBottomOf="@+id/escribirNuevoCorreoConfig" />
 
     <Button
         android:id="@+id/botonCambiarContrasenia"
@@ -104,7 +104,7 @@
         android:text="Cambiar Contraseña"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/escribirNuevoRepetirContrasenia4" />
+        app:layout_constraintTop_toBottomOf="@+id/escribirNuevoRepetirContraseniaConfig" />
 
     <EditText
         android:id="@+id/escribirContraseniaActual"
