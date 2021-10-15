@@ -56,7 +56,6 @@ class InputCrearReporte(
 ) {}
 
 class InputObtenerReporte(
-    var token: String,
     var report_id: String
 ) {}
 

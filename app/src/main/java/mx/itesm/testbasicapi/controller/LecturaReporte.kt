@@ -9,7 +9,10 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import mx.itesm.testbasicapi.R
-import mx.itesm.testbasicapi.controller.FragmentsDeAdmin.RespuestaAdministrador
+import mx.itesm.testbasicapi.Utils
+import mx.itesm.testbasicapi.model.Reporte
+import mx.itesm.testbasicapi.model.repository.responseinterface.OutputObtenerReporte
+import mx.itesm.testbasicapi.model.repository.responseinterface.RespuestaObtenerReporte
 
 
 class LecturaReporte : Fragment() {
@@ -18,8 +21,6 @@ class LecturaReporte : Fragment() {
     lateinit var textoDescripcion: TextView
     lateinit var botonResponder: Button
     lateinit var botonRegresar: Button
-    var displayMessage: String? = ""
-    var idReporte = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,31 +34,25 @@ class LecturaReporte : Fragment() {
             false
         )
 
-        displayMessage = arguments?.getString("id")
-        val aux = displayMessage.toString()
-        Log.d("Este es el aux -> ", aux)
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        displayMessage = arguments?.getString("id")
-        val aux = displayMessage.toString()
-
-
+        textoAsunto = view.findViewById(R.id.textoAsuntoReporte)
+        textoTipo = view.findViewById(R.id.textoTipoReporte)
+        textoDescripcion = view.findViewById(R.id.textoDescripcionReporte)
 
         //boton de responder
         botonResponder = view.findViewById(R.id.botonResponder)
         botonResponder.setOnClickListener {
-            val fragmentListaReportes = RespuestaAdministrador()
+            val fragmentListaReportes = Respuesta()
             val transaccionFragmento = parentFragmentManager.beginTransaction()
             transaccionFragmento.replace(R.id.fragContViewInicio, fragmentListaReportes)
             transaccionFragmento.addToBackStack(null)
             transaccionFragmento.commit()
         }
-
-        botonResponder.text = aux
 
         //boton de regresar
         botonRegresar = view.findViewById(R.id.botonRegresarLecturaReporte)
@@ -69,15 +64,23 @@ class LecturaReporte : Fragment() {
             transaccionFragmento.commit()
         }
 
-        //boton de mapa
-        /*botonMapa = view.findViewById(R.id.buttonMapa)
-        botonMapa.setOnClickListener {
-            val fragmentListaReportes = MapsFragment()
-            val transaccionFragmento = parentFragmentManager.beginTransaction()
-            transaccionFragmento.replace(R.id.fragContViewInicio, fragmentListaReportes)
-            transaccionFragmento.addToBackStack(null)
-            transaccionFragmento.commit()
-        }*/
+        Reporte(Utils.getToken(view.context)).obtenerReporte(Utils.getToken(view.context), Utils.obtenerIdReporte(view.context), object: RespuestaObtenerReporte {
+            override fun enExito(outputObtenerReporte: OutputObtenerReporte?) {
+                if(outputObtenerReporte != null) {
+                    textoAsunto.text = outputObtenerReporte.title
+                    textoTipo.text = outputObtenerReporte.incident_type
+                    textoDescripcion.text = outputObtenerReporte.description
+                }
+            }
+
+            override fun enErrorServidor(codigo: Int, mensaje: String) {
+                Log.d("ErrorServidor", mensaje)
+            }
+
+            override fun enOtroError(t: Throwable) {
+                Log.d("OtroError", t.message.toString())
+            }
+        })
     }
 
 }

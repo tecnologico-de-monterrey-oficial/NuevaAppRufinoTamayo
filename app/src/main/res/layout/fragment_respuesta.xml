@@ -4,69 +4,70 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controller.Respuesta"
-    android:background="@color/fondo">
+    android:background="@color/fondo"
+    tools:context=".controller.Respuesta">
+
+    <Button
+        android:id="@+id/botonReponder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Enviar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/botonRegresarResponder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Regresar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/descripcionReporteOutputTXT"
-        android:layout_width="276dp"
-        android:layout_height="81dp"
-        android:layout_marginTop="72dp"
-        android:fontFamily="@font/lato_bold"
-        android:text="*Descripcion del problema,
-        hay una fuga de agua en los baños*"
+        android:id="@+id/textoAsuntoReponder"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:text="Asunto"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.422"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/respuestaDelAdministradorTXT"
-        android:layout_width="278dp"
-        android:layout_height="99dp"
-        android:layout_marginTop="104dp"
-        android:text="Respuesta de los admins"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.413"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/descripcionReporteOutputTXT" />
-
-    <Button
-        android:id="@+id/regresarRespuestaVisitanteBTN"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginBottom="40dp"
-        android:text="Regresar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/respuestaDelAdministradorTXT"
-        app:layout_constraintVertical_bias="0.996" />
-
     <EditText
-        android:id="@+id/responderReporte"
-        android:layout_width="299dp"
-        android:layout_height="128dp"
-        android:layout_marginTop="24dp"
+        android:id="@+id/escribirRespuesta"
+        android:layout_width="0dp"
+        android:layout_height="320dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="responder"
-        app:layout_constraintBottom_toTopOf="@+id/regresarRespuestaVisitanteBTN"
+        android:gravity="start|top"
+        android:hint="Respuesta..."
+        android:inputType="textMultiLine"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/respuestaDelAdministradorTXT"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/textoAsuntoReponder" />
 
-    <Button
-        android:id="@+id/enviarRespuesta"
-        android:layout_width="118dp"
-        android:layout_height="42dp"
-        android:text="Enviar"
-        app:layout_constraintBottom_toTopOf="@+id/regresarRespuestaVisitanteBTN"
+    <Spinner
+        android:id="@+id/spinnerNuevoEstado"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/responderReporte" />
+        app:layout_constraintTop_toBottomOf="@+id/escribirRespuesta" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

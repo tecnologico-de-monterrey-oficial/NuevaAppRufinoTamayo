@@ -62,16 +62,16 @@ interface RespuestaCrearReporte: IRespuestaBasica {
 }
 
 class OutputObtenerReporte(
+    var report_id: String,
     var user_id: String,
-    var name: String,
-    var last_name: String,
-    var subject: String,
-    var type_of_incident: String,
+    var title: String,
+    var incident_type: String,
     var description: String,
-    var is_urgent: String,
+    var urgency_level: Boolean,
     var status: String,
-    var photo: String?,
-    var location: String?
+    var date: String,
+    var name: String,
+    var last_name: String
 ) {}
 
 interface RespuestaObtenerReporte: IRespuestaBasica {

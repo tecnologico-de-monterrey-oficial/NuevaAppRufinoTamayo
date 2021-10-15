@@ -72,6 +72,7 @@ class Reportes : Fragment() {
                                         val recyclerViewResumenesReportes = view.findViewById<RecyclerView>(R.id.recyclerViewResumenes)
                                         val adaptador = AdaptadorResumenesReportes(outputObtenerResumenesReportes, object: AdaptadorResumenesReportes.OnItemClickListener {
                                             override fun onItemClick(item: OutputObtenerResumenesReportes) {
+
                                                 communicator = activity as Communicator2
                                                 val fragmentoLecturaReporte = LecturaReporte()
                                                 communicator.passDataCom2("12345")
@@ -106,18 +107,21 @@ class Reportes : Fragment() {
                                         val recyclerViewResumenesReportes = view.findViewById<RecyclerView>(R.id.recyclerViewResumenes)
                                         val adaptador = AdaptadorResumenesReportes(outputObtenerResumenesReportes, object: AdaptadorResumenesReportes.OnItemClickListener {
                                             override fun onItemClick(item: OutputObtenerResumenesReportes) {
-                                                val fragmentoLecturaReporte = LecturaReporte()
-                                                val bundle = Bundle()
-                                                bundle.putString("idReporte", "123")
-                                                fragmentoLecturaReporte.arguments = bundle
+                                                Utils.guardarIdReporte(item.report_id, view.context, object: RespuestaCallback {
+                                                    override fun enExito() {
+                                                        super.enExito()
 
-                                                val fragmentTransaction = parentFragmentManager.beginTransaction()
-                                                fragmentTransaction.replace(
-                                                    R.id.fragContViewInicio,
-                                                    fragmentoLecturaReporte
-                                                )
-                                                fragmentTransaction.addToBackStack(null)
-                                                fragmentTransaction.commit()
+                                                        val fragmentoLecturaReporte = LecturaReporte()
+
+                                                        val fragmentTransaction = parentFragmentManager.beginTransaction()
+                                                        fragmentTransaction.replace(
+                                                            R.id.fragContViewInicio,
+                                                            fragmentoLecturaReporte
+                                                        )
+                                                        fragmentTransaction.addToBackStack(null)
+                                                        fragmentTransaction.commit()
+                                                    }
+                                                })
                                             }
                                         }, Utils.getToken(view.context), view.context)
                                         recyclerViewResumenesReportes.adapter = adaptador

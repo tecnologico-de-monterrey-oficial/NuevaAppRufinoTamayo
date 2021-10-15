@@ -15,8 +15,8 @@ interface ApiReportes {
     @POST("api/report/register_report")
     fun crearReporte(@Body inputCrearReporte: InputCrearReporte): Call<Void>
 
-    @GET("api/report/get_report")
-    fun obtenerReporte(inputObtenerReporte: InputObtenerReporte): Call<OutputObtenerReporte>
+    @PUT("api/report/get_report")
+    fun obtenerReporte(@Body inputObtenerReporte: InputObtenerReporte): Call<OutputObtenerReporte>
 
     @PUT("api/report/get_summaries")
     fun obtenerResumenesReportes(@Body inputObtenerResumenesReportes: InputObtenerResumenesReportes): Call<List<OutputObtenerResumenesReportes>>

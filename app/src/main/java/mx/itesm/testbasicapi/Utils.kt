@@ -3,7 +3,10 @@ package mx.itesm.testbasicapi
 import android.content.Context
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import mx.itesm.testbasicapi.controller.RespuestaCallback
 import mx.itesm.testbasicapi.model.entities.JwtToken
+
+
 
 class Utils {
     companion object {
@@ -12,6 +15,8 @@ class Utils {
 
         private const val TOKEN_PREFS = "tokenPrefs"
         private const val TOKEN_KEY = "tokenKey"
+        private const val REPORT_ID_PREFS = "reportIdPrefs"
+        private const val REPORT_ID_KEY = "reportIdKey"
 
         fun getToken(context: Context): String {
             val sharedPreferences = context.getSharedPreferences(
@@ -49,6 +54,27 @@ class Utils {
                 AppCompatActivity.MODE_PRIVATE
             )
             return sharedPreferences.contains(TOKEN_KEY)
+        }
+
+        fun obtenerIdReporte(context: Context): String {
+            val sharedPreferences = context.getSharedPreferences(
+                TOKEN_PREFS,
+                AppCompatActivity.MODE_PRIVATE
+            )
+            val reportId = sharedPreferences.getString(REPORT_ID_KEY, "WRONG_REPORT_ID")
+            Log.i("Utils", "-Report Id is ${reportId!!}")
+            return reportId
+        }
+
+        fun guardarIdReporte(idReporte: String, context: Context, callback: RespuestaCallback) {
+            val sharedPreferences = context.getSharedPreferences(
+                TOKEN_PREFS,
+                AppCompatActivity.MODE_PRIVATE
+            )
+            val editor = sharedPreferences.edit()
+            editor.putString(REPORT_ID_KEY, idReporte)
+            editor.commit()
+            callback.enExito()
         }
     }
 }

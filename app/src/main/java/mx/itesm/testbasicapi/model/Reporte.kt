@@ -36,7 +36,7 @@ class Reporte(private val token: String) {
 
     fun obtenerReporte(token: String, idReporte: String, callback: RespuestaObtenerReporte){
         val retrofit = RemoteRepository.getRetrofitInstance(token)
-        val inputObtenerReporte = InputObtenerReporte(token, idReporte)
+        val inputObtenerReporte = InputObtenerReporte(idReporte)
 
         val llamada = retrofit.create(ApiReportes::class.java).obtenerReporte(inputObtenerReporte)
 

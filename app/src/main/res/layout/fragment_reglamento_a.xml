@@ -2,13 +2,14 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutReglamentoA"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/fondo"
-    tools:context=".controller.Reglamento">
+    tools:context=".controller.ReglamentoA">
 
     <Button
-        android:id="@+id/botonRegresarReglamento"
+        android:id="@+id/botonRegresarReglamentoA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -47,7 +48,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:text="Horario 6:00 am a 10:00 pm Estacionamiento exclusivo para usuarios. Deposita la basura en su lugar. Cuida la flora y  fauna del parque."
         android:textSize="16sp"
@@ -106,7 +107,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textoReglamentoMascotas" />
 
     <Button
-        android:id="@+id/botonSiguienteReglamento"
+        android:id="@+id/botonSiguienteReglamentoA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"

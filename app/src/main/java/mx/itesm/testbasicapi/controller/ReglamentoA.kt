@@ -10,26 +10,36 @@ import mx.itesm.testbasicapi.R
 
 
 
-class Reglamento : Fragment() {
+class ReglamentoA : Fragment() {
     lateinit var botonRegresar: Button
+    lateinit var botonSiguiente: Button
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_reglamento, container, false)
+        return inflater.inflate(R.layout.fragment_reglamento_a, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         //boton de regresar
-        botonRegresar = view.findViewById(R.id.botonRegresarReglamento)
+        botonRegresar = view.findViewById(R.id.botonRegresarReglamentoA)
         botonRegresar.setOnClickListener {
-            val fragmentListaReportes = Menu()
+            val fragmento = Menu()
             val transaccionFragmento = parentFragmentManager.beginTransaction()
-            transaccionFragmento.replace(R.id.fragContViewInicio, fragmentListaReportes)
+            transaccionFragmento.replace(R.id.fragContViewInicio, fragmento)
+            transaccionFragmento.addToBackStack(null)
+            transaccionFragmento.commit()
+        }
+
+        botonSiguiente = view.findViewById(R.id.botonSiguienteReglamentoA)
+        botonSiguiente.setOnClickListener{
+            val fragmento = ReglamentoB()
+            val transaccionFragmento = parentFragmentManager.beginTransaction()
+            transaccionFragmento.replace(R.id.fragContViewInicio, fragmento)
             transaccionFragmento.addToBackStack(null)
             transaccionFragmento.commit()
         }
